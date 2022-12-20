@@ -1,7 +1,125 @@
-.wrapper {
-  display: flex;
-}
-
 .input {
-  border: 1px solid black;
+  $root: &;
+
+  &__label {
+    display: block;
+    margin: 2px 0 8px;
+    color: var(--color-first-blue);
+  }
+
+  &__input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: var(--color-first-blue);
+    background: inherit;
+    border-radius: 10px;
+
+    &_withBorder {
+      border: 1px solid var(--color-main-border);
+    }
+
+    &_hasError {
+      color: var(--color-main-red);
+      border-color: var(--color-main-red);
+    }
+  }
+
+  &__icon {
+    width: 16px;
+    margin: 0 8px 0 0;
+  }
+
+  &__eye-icon {
+    width: 24px;
+    color: inherit;
+  }
+
+  &__input {
+    width: 100%;
+    margin: 0;
+    padding: 10px 16px;
+    color: inherit;
+    font-size: 17px;
+    font-family: inherit;
+    line-height: 24px;
+    text-align: inherit;
+    border: none;
+    border-radius: 15px;
+    outline: none;
+    appearance: none;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      appearance: none;
+    }
+
+    &[type='number'] {
+      appearance: textfield;
+    }
+
+    &:focus + #{$root}__gradient {
+      box-shadow: none;
+    }
+
+    &::placeholder {
+      color: var(--color-first-blue);
+      font-size: 17px;
+    }
+
+    &[disabled] {
+      color: var(--color-main-secondary-text);
+      opacity: 1; /* required on iOS */
+      -webkit-text-fill-color: var(--color-main-secondary-text);
+    }
+
+    &_withLabel {
+      padding-top: 5px;
+      padding-bottom: 8px;
+    }
+  }
+
+  &__switch-masked {
+    position: absolute;
+    top: 0;
+    right: var(--input-switch-masked-right);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: inherit;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__error-wrapper {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    line-height: 21px;
+
+    &:not(:empty) {
+      min-height: 28px;
+      padding: 6px 0 0;
+    }
+
+    &_active {
+      margin-top: -1px;
+      color: var(--color-encore-primary-error);
+      border-top: var(--input-error-wrapper-border-top);
+    }
+  }
+
+  &__error {
+    color: var(--color-main-red);
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  &__button {
+    text-align: left;
+  }
 }
