@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-
-import Auth from "../pages/Auth/Auth.vue";
+import CONST from "@/utils/const";
+import { Auth } from "@/pages";
 
 const routes: Array<RouteRecordRaw> = [
   {
