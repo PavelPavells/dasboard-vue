@@ -1,6 +1,6 @@
 import { InputHTMLAttributes, VueElement } from "vue";
 
-export default interface TInput extends InputHTMLAttributes {
+export interface InputProps extends InputHTMLAttributes {
   className?: string;
   label?: string;
   error?: VueElement | boolean;

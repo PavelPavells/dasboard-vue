@@ -1,36 +1,30 @@
 <template>
-  <div className="wrapper">
-    <label :show="label" className="label" htmlFor="id">
+  <div class="input">
+    <label :show="label" class="label" htmlFor="id">
       {{ label }}
     </label>
-    <div
-      className="input-wrapper"
-      :hasError="hasError"
-      :withBorder="withBorder"
-    >
-      <div :show="icon" className="icon">{{ icon }}</div>
-      <InputMask mask="mask" {{...inputProps}}>
-        {() => <input ref="ref" {{...inputProps}} />}
-      </InputMask>
+    <div class="input-wrapper" :hasError="hasError" :withBorder="withBorder">
+      <div :show="icon" class="icon">{{ icon }}</div>
+      <!-- <InputMask mask="mask"> {() => <input ref="ref" />} </InputMask> -->
       <button
         :show="showMask && state.isPasswordType"
-        className="switch-masked"
+        class="switch-masked"
         type="button"
         :click="setMasked"
       >
-        <EyeClosedIcon :show="withIcon && state.masked" className="eye-icon" />
-        <EyeOpenedIcon :show="withIcon && !state.masked" className="eye-icon" />
+        <!-- <EyeClosedIcon :show="withIcon && state.masked" class="eye-icon" />
+        <EyeOpenedIcon :show="withIcon && !state.masked" class="eye-icon" /> -->
       </button>
     </div>
-    <div className="error-wrapper" , :active="hasError">
-      <div :show="hasError" className="error">{error}</div>
+    <div class="error-wrapper" :active="hasError">
+      <div :show="hasError" class="error">{error}</div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import Input from "./types";
+import { InputProps } from "./types";
 
 export default defineComponent({
   name: "InputComponent",
@@ -61,35 +55,35 @@ export default defineComponent({
   },
   props: {
     withBorder: {
-      type: Object as PropType<Input["withBorder"]>,
+      type: Object as PropType<InputProps["withBorder"]>,
       required: false,
     },
     label: {
-      type: Object as PropType<Input["label"]>,
+      type: Object as PropType<InputProps["label"]>,
       required: false,
     },
     hasError: {
-      type: Object as PropType<Input["hasError"]>,
+      type: Object as PropType<InputProps["hasError"]>,
       required: false,
     },
     icon: {
-      type: Object as PropType<Input["icon"]>,
+      type: Object as PropType<InputProps["icon"]>,
       required: false,
     },
     showMask: {
-      type: Object as PropType<Input["showMask"]>,
+      type: Object as PropType<InputProps["showMask"]>,
       required: false,
     },
     withIcon: {
-      type: Object as PropType<Input["withIcon"]>,
+      type: Object as PropType<InputProps["withIcon"]>,
       required: false,
     },
     isLoading: {
-      type: Object as PropType<Input["isLoading"]>,
+      type: Object as PropType<InputProps["isLoading"]>,
       required: false,
     },
     type: {
-      type: Object as PropType<Input["type"]>,
+      type: Object as PropType<InputProps["type"]>,
       required: true,
     },
   },
