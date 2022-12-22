@@ -12,22 +12,27 @@
         type="button"
         :click="setMasked"
       >
-        <!-- <EyeClosedIcon :show="withIcon && state.masked" class="eye-icon" />
-        <EyeOpenedIcon :show="withIcon && !state.masked" class="eye-icon" /> -->
+        <EyeClosedIcon :show="withIcon && state.masked" class="eye-icon" />
+        <EyeOpenedIcon :show="withIcon && !state.masked" class="eye-icon" />
       </button>
     </div>
     <div class="error-wrapper" :active="hasError">
-      <div :show="hasError" class="error">{error}</div>
+      <div :show="hasError" class="error">{{ state.error }}</div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
+import { EyeClosedIcon, EyeOpenedIcon } from "@icons";
 import { InputProps } from "./types";
 
 export default defineComponent({
   name: "InputComponent",
+  components: {
+    EyeClosedIcon,
+    EyeOpenedIcon,
+  },
   data() {
     return {
       state: {
@@ -35,6 +40,7 @@ export default defineComponent({
         hasError: false,
         withBorder: false,
         value: "",
+        error: this.$props.hasError,
         isPasswordType: false,
       },
     };

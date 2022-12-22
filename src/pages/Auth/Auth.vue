@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { InputVue } from "@/components/ui";
+import { InputVue } from "@components/ui";
 
 export default defineComponent({
   name: "AuthComponent",

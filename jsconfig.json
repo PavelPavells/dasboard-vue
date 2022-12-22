@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": "./",
+    "paths": {
+      "@assets/*": ["./assets/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@utils": ["./src/utils"],
+      "@utils/*": ["./src/utils/*"],
+      "@components": ["./src/components"],
+      "@components/*": ["./src/components/*"],
+      "@containers": ["./src/containers"],
+      "@containers/*": ["./src/containers/*"],
+      "@selectors": ["./src/selectors"],
+      "@selectors/*": ["./src/selectors/*"],
+      "@slices": ["./src/modules"],
+      "@slices/*": ["./src/modules/*"],
+      "@layouts": ["./src/layouts"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@pages": ["./src/pages"],
+      "@pages/*": ["./src/pages/*"],
+      "@sagas": ["./src/sagas"],
+      "@sagas/*": ["./src/sagas/*"],
+      "@api": ["./src/api"],
+      "@api/*": ["./src/api/*"],
+      "@types": ["./src/types"],
+      "@types/*": ["./src/types/*"],
+      "@src/*": ["./src/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist", "docker"]
+}
