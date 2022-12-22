@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import CONST from "@/utils/const";
-import { Auth } from "@/pages";
+import { Auth, Widgets } from "@pages";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -11,7 +10,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: CONST.nav.widgets,
     name: "widgets",
-    component: () => import("../pages/Widgets/Widgets.vue"),
+    component: Widgets,
   },
 ];
 

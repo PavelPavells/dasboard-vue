@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/js-cookie": "^3.0.2",
+    "@types/vue-router": "^2.0.0",
     "core-js": "^3.8.3",
     "js-cookie": "^3.0.1",
     "sass-loader": "^13.2.0",
