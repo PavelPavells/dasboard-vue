@@ -1,1 +1,1 @@
-export * from "./const";
+export * as CONST from "./const";

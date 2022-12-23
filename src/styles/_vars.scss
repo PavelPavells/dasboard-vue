@@ -1,0 +1,50 @@
+:root {
+  /* container */
+  --container-size: 1360px;
+
+  /* button */
+  --button-border-radius: 10px;
+  --button-height: 40px;
+
+  /* tooltip */
+  --tooltip-border-radius: 6px;
+  --tooltip-max-width: 330px;
+  --tooltip-content-width: 16px;
+
+  /* space */
+  --space-content-x: 64px;
+
+  /* input */
+  --input-paddings: 0 15px;
+  --input-switch-masked-right: 15px;
+
+  /* fonts */
+  --karloff: Karloff, serif;
+  --brutal: BrutalType, sans-serif;
+  --roboto: Roboto, sans-serif;
+  --roboto-mono: Roboto Mono, monospace;
+
+  /* width */
+  --login-form-width: 520px;
+  --max-width: 1280px;
+  --max-content-width: 600px;
+
+  /* z-index */
+  --z-index-desktop-select: 100;
+  --z-index-intercom: 101;
+  --z-index-tooltip: 102;
+  --z-index-desktop-modal-bg: 103;
+  --z-index-modal: 104;
+
+  /* shadows */
+  --box-shadow-sidebar: 0 4px 8px 0 hsla(240deg, 17%, 24%, 0.01),
+    0 4px 4px 0 hsla(0deg, 0%, 0%, 0.08);
+
+  @include media('<=desktop') {
+    --space-content-x: 128px;
+  }
+
+  @include media('<=mobile') {
+    --space-content-x: 32px;
+  }
+}

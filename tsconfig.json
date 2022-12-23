@@ -17,7 +17,7 @@
       "jest"
     ],
     "paths": {
-      "@icons": ["./assets/icons"],
+      "@icons": ["assets/icons"],
       "@assets/*": ["./assets/*"],
       "@styles/*": ["./src/styles/*"],
       "@utils": ["./src/utils"],

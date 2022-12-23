@@ -35,9 +35,7 @@ export type LocationStateValues = LocationStateType[LocationStateKeys];
 
 export type RedirectToType = <T extends LocationStateKeys>(
   path: T extends LocationStateKeys ? string : T,
-  state?: T extends LocationStateKeys
-    ? LocationStateType[T]
-    : LocationStateType[LocationStateKeys]
+  state?: T extends LocationStateKeys ? LocationStateType[T] : LocationStateType[LocationStateKeys]
 ) => void;
 
 export type LocalStorageType = {

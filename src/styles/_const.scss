@@ -1,0 +1,17 @@
+@import '~include-media';
+
+$mobile: 460px;
+$tablet: 768px;
+$desktop: 1280px;
+
+$breakpoints: (
+  mobile: $mobile,
+  tablet: $tablet,
+  desktop: $desktop,
+);
+
+:export {
+  mobile: $mobile;
+  tablet: $tablet;
+  desktop: $desktop;
+}
