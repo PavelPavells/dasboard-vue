@@ -1,0 +1,42 @@
+:root {
+  /* main */
+  --color-main-bg: hsl(0deg, 0%, 100%);
+  --color-main-dark-text: hsl(210deg, 42%, 20%);
+  --color-main-dark-secondary-text: hsl(0deg, 0%, 56%);
+  --color-main-light-text: hsl(0deg, 0%, 100%);
+  --color-main-light-secondary-text: hsl(217deg, 19%, 57%);
+  --color-main-light-third-text: hsl(226deg, 15%, 63%);
+  --color-main-border: hsl(0deg, 0%, 92%);
+  --color-main-strong: hsl(227deg, 100%, 97%);
+  --color-main-box-shadow: hsl(240deg, 17%, 24%);
+  --color-main-secondary-box-shadow: hsl(0deg, 0%, 0%);
+  --color-main-medium: hsl(210deg, 29%, 97%);
+  --color-main-light: hsl(0deg, 0%, 98%);
+  --color-main-action: hsl(209deg, 73%, 93%);
+  --color-main-disabled: hsl(14deg, 86%, 89%);
+
+  /* blue */
+  --color-main-blue: hsl(207deg, 100%, 24%);
+  --color-first-blue: hsl(210deg, 42%, 20%);
+  --color-second-blue: hsl(210deg, 35%, 35%);
+  --color-third-blue: hsl(210deg, 30%, 52%);
+  --color-fourth-blue: hsl(210deg, 41%, 64%);
+  --color-fifth-blue: hsl(210deg, 70%, 78%);
+  --color-sixth-blue: hsl(210deg, 83%, 86%);
+  --color-seven-blue: hsla(220deg, 20%, 97%);
+
+  /* orange */
+  --color-main-orange: hsl(13deg, 100%, 59%);
+  --color-first-orange: hsl(13deg, 100%, 57%);
+  --color-second-orange: hsl(13deg, 100%, 67%);
+  --color-third-orange: hsl(13deg, 97%, 73%);
+  --color-fourth-orange: hsl(12deg, 96%, 81%);
+  --color-fifth-orange: hsl(13deg, 87%, 85%);
+  --color-sixth-orange: hsl(12deg, 100%, 94%);
+  --color-seventh-orange: hsla(14deg, 86%, 89%);
+
+  /* multi */
+  --color-main-green: hsl(164deg, 57%, 35%);
+  --color-main-red: hsl(356deg, 85%, 62%);
+  --color-main-pale: hsl(208deg, 25%, 80%);
+}

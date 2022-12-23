@@ -12,8 +12,8 @@
         type="button"
         :click="setMasked"
       >
-        <EyeClosedIcon :show="withIcon && state.masked" class="eye-icon" />
-        <EyeOpenedIcon :show="withIcon && !state.masked" class="eye-icon" />
+        <EyeClosed :show="withIcon && state.masked" class="eye-icon" />
+        <EyeOpened :show="withIcon && !state.masked" class="eye-icon" />
       </button>
     </div>
     <div class="error-wrapper" :active="hasError">
@@ -24,14 +24,14 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { EyeClosedIcon, EyeOpenedIcon } from "@icons";
+import { EyeClosed, EyeOpened } from "@icons";
 import { InputProps } from "./types";
 
 export default defineComponent({
   name: "InputComponent",
   components: {
-    EyeClosedIcon,
-    EyeOpenedIcon,
+    EyeClosed,
+    EyeOpened,
   },
   data() {
     return {
@@ -62,35 +62,27 @@ export default defineComponent({
   props: {
     withBorder: {
       type: Object as PropType<InputProps["withBorder"]>,
-      required: false,
     },
     label: {
       type: Object as PropType<InputProps["label"]>,
-      required: false,
     },
     hasError: {
       type: Object as PropType<InputProps["hasError"]>,
-      required: false,
     },
     icon: {
       type: Object as PropType<InputProps["icon"]>,
-      required: false,
     },
     showMask: {
       type: Object as PropType<InputProps["showMask"]>,
-      required: false,
     },
     withIcon: {
       type: Object as PropType<InputProps["withIcon"]>,
-      required: false,
     },
     isLoading: {
       type: Object as PropType<InputProps["isLoading"]>,
-      required: false,
     },
     type: {
       type: Object as PropType<InputProps["type"]>,
-      required: true,
     },
   },
 });

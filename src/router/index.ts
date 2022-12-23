@@ -3,12 +3,12 @@ import { Auth, Widgets } from "@pages";
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: CONST.nav.login,
+    path: "/login", // CONST.nav.login,
     name: "auth",
     component: Auth,
   },
   {
-    path: CONST.nav.widgets,
+    path: "/widgets", // CONST.nav.widgets,
     name: "widgets",
     component: Widgets,
   },

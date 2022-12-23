@@ -31,9 +31,7 @@ type UnwrapPromise<T> = T extends Promise<infer U>
   ? U
   : T;
 
-type CustomFC<T = unknown> = React.FC<
-  { className?: string; children?: React.ReactNode } & T
->;
+type CustomFC<T = unknown> = React.FC<{ className?: string; children?: React.ReactNode } & T>;
 
 declare const IS_DEV: boolean;
 declare const IS_LOCAL: boolean;
