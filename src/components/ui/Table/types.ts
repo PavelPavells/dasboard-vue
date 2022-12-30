@@ -1,15 +1,15 @@
-export type ColumnType<T, K extends keyof T> = {
-  key: K;
+export type ColumnType = {
+  key: string;
   header: string;
   width?: number;
   className?: string;
   param?: {
-    key: K;
+    key: string;
   };
 };
 
-export type TableProps<T, K extends keyof T> = {
-  data: Array<T>;
-  columns: Array<ColumnType<T, K>>;
+export type TableProps = {
+  data: Array<any>;
+  columns: Array<ColumnType>;
   className?: string;
 };

@@ -8,32 +8,33 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { Head } from "./Head/Head.vue";
-import { Rows } from "./Rows/Rows.vue";
-import { TableProps, ColumnType } from "./types";
+import Head from "./Head/Head.vue";
+import Rows from "./Rows/Rows.vue";
+import { TableProps } from "./types";
 
-function defineGenericComponent<T, K extends keyof T>({
-  data,
-  columns,
-  className,
-}: TableProps<T, K>) {
-  return defineComponent({
-    name: "TableComponent",
-    components: {
-      Head,
-      Rows,
+export default defineComponent({
+  name: "TableComponent",
+  components: {
+    Head,
+    Rows,
+  },
+  data() {
+    const hasData = Boolean(this.$props.data.length);
+
+    return { hasData };
+  },
+  props: {
+    data: {
+      type: Object as PropType<TableProps["data"]>,
+      required: true,
     },
-    setup() {
-      const hasData = data.length > 0;
-
-      return { hasData, data, columns, className };
-    }
-  });
-}
-
-export const Table = <T, K extends keyof T>({ data, columns, className }: TableProps<T, K>) => {
-  return defineGenericComponent<T, K>({ data, columns, className });
-};
-
-export default defineGenericComponent();
+    columns: {
+      type: Object as PropType<TableProps["columns"]>,
+      required: true,
+    },
+  },
+});
 </script>
+<style>
+@import url("./Table.scss");
+</style>
