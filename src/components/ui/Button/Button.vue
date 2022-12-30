@@ -1,5 +1,5 @@
 <template>
-  <button class="button" :bind="(disabled, isLoading)">
+  <button class="button" :bind="(disabled, isLoading)" v-bind:class="cssVars">
     <div :show="icon" class="button__icon">{{ icon }}</div>
     <slot />
   </button>
@@ -14,8 +14,8 @@ export default defineComponent({
   computed: {
     cssVars() {
       return {
-        "--disabled": this.$props.disabled,
-        "--isLoading": this.$props.isLoading,
+        "--disabled": this.$props.disabled || false,
+        "--isLoading": this.$props.isLoading || false,
       };
     },
   },
