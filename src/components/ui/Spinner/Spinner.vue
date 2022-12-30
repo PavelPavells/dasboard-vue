@@ -1,5 +1,5 @@
 <template>
-  <div className="spinner" v-bind:style="{ '--size': $props.size }">
+  <div className="spinner" v-bind:class="cssVars">
     <svg className="circular" viewBox="25 25 50 50">
       <circle
         className="path"
