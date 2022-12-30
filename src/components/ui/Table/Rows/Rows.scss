@@ -1,0 +1,18 @@
+.rows {
+  font-size: 14px;
+  line-height: 17px;
+
+  &__tr {
+    height: 71px;
+    border-bottom: 1px solid var(--color-main-border);
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__td {
+    padding: 0 0 0 17px;
+    text-align: left;
+  }
+}

@@ -1,11 +1,16 @@
 <template>
-  <div v-for="row in data" :key="row">
-    <tr v-for="column in columns" :key="column.key">
-      <td>
-        <div class="content" v-bind="dataAttributes">{{ row[column.key] }}</div>
-      </td>
-    </tr>
-  </div>
+  <tr v-for="row in data" :key="row" class="tr">
+    <td v-for="column in columns" :key="column.key" class="td">
+      <div
+        v-bind="{
+          ...(column.param?.key ? { [`data-${column.param.key}`]: row[column.param.key] } : {}),
+        }"
+        class="content"
+      >
+        {{ row[column.key] }}
+      </div>
+    </td>
+  </tr>
 </template>
 
 <script lang="ts">
@@ -23,17 +28,6 @@ export default defineComponent({
       type: Object as PropType<TableProps["columns"]>,
       required: true,
     },
-  },
-  data() {
-    return {
-      dataAttributes: this.data.map(row => {
-        this.columns.map(column => {
-          return {
-            ...(column.param?.key ? { [`data-${column.param.key}`]: row[column.param.key] } : {}),
-          };
-        });
-      }),
-    };
   },
 });
 </script>
