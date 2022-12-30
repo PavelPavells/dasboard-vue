@@ -6,7 +6,13 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{ts, vue, js}": "eslint --fix",
+    "**/*": "prettier -w -u",
+    "*.(css|scss)": "stylelint --fix"
   },
   "dependencies": {
     "@types/js-cookie": "^3.0.2",
