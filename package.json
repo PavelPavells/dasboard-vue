@@ -6,8 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint",
-    "prepare": "husky install"
+    "lint": "vue-cli-service lint"
   },
   "lint-staged": {
     "*.{ts, vue, js}": "eslint --fix",
@@ -18,7 +17,9 @@
     "@types/js-cookie": "^3.0.2",
     "@types/vue-router": "^2.0.0",
     "core-js": "^3.8.3",
+    "include-media": "^1.4.10",
     "js-cookie": "^3.0.1",
+    "node-sass": "^8.0.0",
     "sass-loader": "^13.2.0",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",

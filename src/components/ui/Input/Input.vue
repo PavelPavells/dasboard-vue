@@ -6,11 +6,12 @@
     <div class="input-wrapper" :hasError="hasError" :withBorder="withBorder">
       <div :show="icon" class="icon">{{ icon }}</div>
       <!-- <InputMask mask="mask"> {() => <input ref="ref" />} </InputMask> -->
+      <input ref="ref" />
       <button
         :show="showMask && state.isPasswordType"
         class="switch-masked"
         type="button"
-        :click="setMasked"
+        @click="setMasked"
       >
         <EyeClosed :show="withIcon && state.masked" class="eye-icon" />
         <EyeOpened :show="withIcon && !state.masked" class="eye-icon" />

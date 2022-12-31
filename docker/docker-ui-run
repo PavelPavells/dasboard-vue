@@ -1,0 +1,3 @@
+#!/bin/sh
+envsubst < /app-data/conf.js.template > $APP_ROOT/conf.js && \
+nginx -g "daemon off;"
