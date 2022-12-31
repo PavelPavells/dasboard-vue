@@ -1,0 +1,9 @@
+window.__APP_CONFIG__ = {
+  env: '${DASHBOARD_ENV}',
+  apiHost: '${DASHBOARD_API_HOST}',
+  apiScheme: '${DASHBOARD_API_SCHEME}',
+  wssScheme: '${DASHBOARD_WSS_SCHEME}',
+  apiVersion: '${DASHBOARD_API_VERSION}',
+  apiUrl: '${DASHBOARD_API_SCHEME}://${DASHBOARD_API_HOST}',
+  hostDomain: '${DASHBOARD_HOST_DOMAIN}',
+};
