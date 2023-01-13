@@ -1,0 +1,23 @@
+<template>
+  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="5" viewBox="0 0 10 5" fill="none">
+    <path
+      d="M0.965686 0H9.03431C9.39068 0 9.56914 0.430856 9.31716 0.682842L5 5L0.682843 0.682843C0.430857 0.430857 0.609324 0 0.965686 0Z"
+      fill="var(--color-main-blue)"
+    />
+  </svg>
+</template>
+
+<script lang="ts">
+import { defineComponent, PropType } from "vue";
+import { IconProps } from "./types";
+
+export default defineComponent({
+  name: "AvatarMain",
+  props: {
+    width: Object as PropType<IconProps["width"]>,
+  },
+  color: {
+    type: Object as PropType<IconProps["color"]>,
+  },
+});
+</script>

@@ -2,7 +2,7 @@
   <section class="wrapper">
     <div class="content">
       <div class="inner-wrapper">
-        <!-- <Logo name="main_logo" class="logo" /> -->
+        <LogoMain name="main_logo" class="logo" />
         <slot />
       </div>
       <!-- <Footer /> -->
@@ -13,8 +13,9 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { LogoMain } from "@icons";
 
-export default defineComponent({ name: "AuthComponent" });
+export default defineComponent({ name: "AuthComponent", components: { LogoMain } });
 </script>
 
 <style lang="scss">

@@ -76,7 +76,9 @@ export default defineComponent({
     handleClick: () => {
       console.log("click");
     },
-    handleSubmit: () => {
+    handleSubmit: (e: Event) => {
+      e.preventDefault();
+
       console.log("handle submit");
     },
   },
