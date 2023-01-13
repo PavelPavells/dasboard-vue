@@ -147,12 +147,12 @@ button {
   font-weight: 400;
   white-space: nowrap;
   text-align: center;
-  background-color: var(--color-action-active);
+  background-color: var(--color-main-action);
   border-radius: 3px;
 
   &:hover,
   &:active {
-    background-color: var(--color-action-hover);
+    background-color: var(--color-main-action);
   }
 }
 

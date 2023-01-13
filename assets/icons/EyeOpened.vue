@@ -24,7 +24,7 @@ export default defineComponent({
       type: Object as PropType<IconProps["width"]>,
     },
     color: {
-      type: Object as PropType<IconProps["width"]>,
+      type: Object as PropType<IconProps["color"]>,
     },
   },
 });
