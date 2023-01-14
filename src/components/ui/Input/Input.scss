@@ -1,3 +1,27 @@
-.Input{
+.label {
+  display: block;
+  margin: 2px 0 8px;
+}
+
+.input-wrapper {
+  position: relative;
   display: flex;
+  align-items: center;
+  color: var(--color-first-blue);
+  background: inherit;
+  border-radius: 10px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 5px;
+}
+
+.input-wrapper.withBorder {
+  border: 1px solid var(--color-main-border);
+}
+
+.input-wrapper.error, .error {
+  color: var(--color-main-red);
+  border-color: var(--color-main-red);
 }

@@ -1,35 +1,45 @@
 <template>
-  <div class="input">
-    <label :show="label" class="label" htmlFor="id">
-      {{ label }}
-    </label>
-    <div class="input-wrapper" :hasError="hasError" :withBorder="withBorder">
-      <div :show="icon" class="icon">{{ icon }}</div>
-      <!-- <InputMask mask="mask"> {() => <input ref="ref" />} </InputMask> -->
-      <input ref="ref" />
-      <button
-        :show="showMask && state.isPasswordType"
-        class="switch-masked"
-        type="button"
-        @click="setMasked"
-      >
-        <EyeClosed :show="withIcon && state.masked" class="eye-icon" />
-        <EyeOpened :show="withIcon && !state.masked" class="eye-icon" />
-      </button>
-    </div>
-    <div class="error-wrapper" :active="hasError">
-      <div :show="hasError" class="error">{{ state.error }}</div>
-    </div>
+  <label :show="label" class="label">
+    {{ label }}
+  </label>
+  <div class="input-wrapper" v-bind:class="cssVars">
+    <div :show="icon" class="icon">{{ icon }}</div>
+    <input
+      class="input"
+      :type="type"
+      :value="modelValue"
+      @change="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+    />
+    <button
+      :show="showMask && state.isPasswordType"
+      class="switch-masked"
+      type="button"
+      @click="setMasked"
+    >
+      <EyeClosed :show="withIcon && state.masked" class="eye-icon" />
+      <EyeOpened :show="withIcon && !state.masked" class="eye-icon" />
+    </button>
+  </div>
+  <div class="error-wrapper" :active="error">
+    <div :show="error" class="error">{{ error }}</div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import { defineComponent, PropType, VueElement } from "vue";
 import { EyeClosed, EyeOpened } from "@icons";
 import { InputProps } from "./types";
 
 export default defineComponent({
   name: "InputComponent",
+  computed: {
+    cssVars() {
+      return {
+        error: this.$props.error || false,
+        withBorder: this.$props.withBorder || true,
+      };
+    },
+  },
   components: {
     EyeClosed,
     EyeOpened,
@@ -38,10 +48,6 @@ export default defineComponent({
     return {
       state: {
         masked: true,
-        hasError: false,
-        withBorder: false,
-        value: "",
-        error: this.$props.hasError,
         isPasswordType: false,
       },
     };
@@ -53,37 +59,37 @@ export default defineComponent({
     setIsPasswordType() {
       this.state.masked = this.$props.type === "password";
     },
-    handleChange(event: Event) {
-      this.state.value = (event.target as HTMLInputElement).value;
-    },
     switchMasked() {
       this.state.masked = !this.state.masked;
     },
   },
   props: {
     withBorder: {
-      type: Object as PropType<InputProps["withBorder"]>,
+      type: Boolean as PropType<InputProps["withBorder"]>,
     },
     label: {
-      type: Object as PropType<InputProps["label"]>,
+      type: String as PropType<InputProps["label"]>,
     },
-    hasError: {
-      type: Object as PropType<InputProps["hasError"]>,
+    modelValue: {
+      type: Object as PropType<InputProps["modelValue"]>,
+    },
+    error: {
+      type: String as PropType<InputProps["error"]>,
     },
     icon: {
-      type: Object as PropType<InputProps["icon"]>,
+      type: VueElement as PropType<InputProps["icon"]>,
     },
     showMask: {
-      type: Object as PropType<InputProps["showMask"]>,
+      type: Boolean as PropType<InputProps["showMask"]>,
     },
     withIcon: {
-      type: Object as PropType<InputProps["withIcon"]>,
+      type: Boolean as PropType<InputProps["withIcon"]>,
     },
     isLoading: {
-      type: Object as PropType<InputProps["isLoading"]>,
+      type: Boolean as PropType<InputProps["isLoading"]>,
     },
     type: {
-      type: Object as PropType<InputProps["type"]>,
+      type: String as PropType<InputProps["type"]>,
     },
   },
 });
