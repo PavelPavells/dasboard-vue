@@ -7,33 +7,24 @@
         <div class="wrapper-input">
           <Input
             label="Email"
-            name="login"
             type="email"
             autoFocus
-            inputMode="email"
             placeholder="satoshi@mercuryo.io"
             autoComplete="email"
-            @input="$emit('update:login', $event.target.value)"
-            v-model:value="auth.login"
-            v-model:ref="inputRef"
+            v-model="login"
           />
         </div>
         <div class="wrapper-input">
           <Input
             label="Password"
-            name="password"
             type="password"
-            inputMode="text"
-            withBorder
             withIcon
             autoComplete="password"
-            @input="$emit('update:password', $event.target.value)"
-            v-model:value="auth.password"
-            v-model:ref="inputRef"
-            v-model:error="auth.error"
+            v-model="password"
+            :error="error"
           />
-          <Button class="forgot" @click="handleClick" outline> Forgot your password? </Button>
-          <Button class="button" v-model:disabled="isSubmitDisabled" width="140px" type="submit">
+          <Button class="forgot" @click="handleClick" outline>Forgot your password?</Button>
+          <Button class="button" :disabled="isDisable(login, password)" width="140px" type="submit">
             Log in
           </Button>
         </div>
@@ -43,7 +34,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref } from "vue";
+import { defineComponent, ref } from "vue";
 import { Input, Button } from "@components/ui";
 import { Auth } from "@layouts";
 
@@ -55,21 +46,14 @@ export default defineComponent({
     Auth,
   },
   setup() {
-    const auth = reactive({
-      login: "",
-      password: "",
-      error: "",
-    });
-
-    const inputRef = ref();
-
-    const isLoading = false;
-    const isSubmitDisabled = !auth.login || !auth.password || isLoading;
+    const login = ref("");
+    const password = ref("");
+    const error = ref("");
 
     return {
-      auth,
-      inputRef,
-      isSubmitDisabled,
+      login,
+      password,
+      error,
     };
   },
   methods: {
@@ -81,6 +65,7 @@ export default defineComponent({
 
       console.log("handle submit");
     },
+    isDisable: (login: string, password: string) => !login || !password,
   },
 });
 </script>
