@@ -16,8 +16,8 @@
       type="button"
       @click="setMasked"
     >
-      <EyeClosed :show="withIcon && state.masked" class="eye-icon" />
-      <EyeOpened :show="withIcon && !state.masked" class="eye-icon" />
+      <!-- <EyeClosed :show="withIcon && state.masked" class="eye-icon" />
+      <EyeOpened :show="withIcon && !state.masked" class="eye-icon" /> -->
     </button>
   </div>
   <div class="error-wrapper" :active="error">
@@ -27,13 +27,13 @@
 
 <script lang="ts">
 import { defineComponent, PropType, VueElement } from "vue";
-import { EyeClosed, EyeOpened } from "@icons";
+// import { EyeClosed, EyeOpened } from "@icons";
 import { InputProps } from "./types";
 
 export default defineComponent({
   name: "InputComponent",
   computed: {
-    cssVars() {
+    cssVars(): any {
       return {
         error: this.$props.error || false,
         withBorder: this.$props.withBorder || true,
@@ -41,8 +41,8 @@ export default defineComponent({
     },
   },
   components: {
-    EyeClosed,
-    EyeOpened,
+    // EyeClosed,
+    // EyeOpened,
   },
   data() {
     return {

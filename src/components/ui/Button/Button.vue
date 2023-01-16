@@ -12,7 +12,7 @@ import { ButtonProps } from "./types";
 export default defineComponent({
   name: "ButtonComponent",
   computed: {
-    cssVars() {
+    cssVars(): any {
       return {
         disabled: this.$props.disabled,
         isLoading: this.$props.isLoading || false,

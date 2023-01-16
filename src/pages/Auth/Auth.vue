@@ -34,6 +34,7 @@
 </template>
 
 <script lang="ts">
+// @ts-nocheck
 import { defineComponent, ref } from "vue";
 import { Input, Button } from "@components/ui";
 import { Auth } from "@layouts";

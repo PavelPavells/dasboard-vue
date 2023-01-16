@@ -114,7 +114,8 @@ module.exports = {
         test: /\.ts$/,
         exclude: /(node_modules)/,
         use: {
-          loader: "ts-loader"
+          loader: "ts-loader",
+          options: { appendTsSuffixTo: [/\.vue$/] },
         }
       },
       {
@@ -124,8 +125,7 @@ module.exports = {
         options: {
          appendTsSuffixTo: [/\.vue$/]
         },
-       },
-       
+      },
       {
         test: /\.mjs$/,
         include: /node_modules/,
