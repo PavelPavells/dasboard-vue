@@ -38,8 +38,8 @@ import { defineComponent, ref } from "vue";
 import { Input, Button } from "@components/ui";
 import { Auth } from "@layouts";
 
-export default defineComponent({
-  name: "AuthComponent",
+export default {
+  name: "Auth",
   components: {
     Input,
     Button,
@@ -67,7 +67,7 @@ export default defineComponent({
     },
     isDisable: (login: string, password: string) => !login || !password,
   },
-});
+};
 </script>
 
 <style lang="scss" src="./Auth.scss"></style>

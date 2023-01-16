@@ -1,0 +1,78 @@
+{
+  "root": true,
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "plugin:vue/vue3-essential",
+    "eslint:recommended",
+    "@vue/typescript/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "globals": {
+    "IS_DEV": "readonly",
+    "IS_TEST": "readonly",
+    "IS_PROD": "readonly",
+    "HOST_DOMAIN": "readonly",
+    "CARD3DS_DOMAIN": "readonly",
+    "CONST": "readonly",
+    "page": true,
+    "browser": true,
+    "context": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
+  "rules": {
+    "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "printWidth": 100,
+        "tabWidth": 2,
+        "useTabs": false,
+        "semi": true,
+        "singleQuote": true,
+        "trailingComma": "es5",
+        "bracketSpacing": true,
+        "arrowParens": "avoid",
+        "proseWrap": "preserve",
+        "endOfLine": "auto"
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["@assets", "./assets"],
+          ["@styles", "./srs/styles"],
+          ["@utils", "./src/utils"],
+          ["@components", "./src/components"],
+          ["@containers", "./src/containers"],
+          ["@layouts", "./src/layouts"],
+          ["@selectors", "./src/selectors"],
+          ["@slices", "./src/slices"],
+          ["@pages", "./src/pages"],
+          ["@sagas", "./src/sagas"],
+          ["@types", "./src/types"],
+          ["@types/*", "./src/types/*"],
+          ["@api", "./src/api"],
+          ["@api/*", "./src/api/*"],
+          ["@src", "./src"]
+        ]
+      }
+    }
+  },
+  "overrides": [
+    {
+      "files": ["**/__tests__/*.{j,t}s?(x)", "**/tests/unit/**/*.spec.{j,t}s?(x)"],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
+}

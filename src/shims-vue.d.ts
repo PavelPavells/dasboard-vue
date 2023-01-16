@@ -29,8 +29,6 @@ type UnwrapPromise<T> = T extends Promise<infer U>
   ? U
   : T;
 
-type CustomFC<T = unknown> = React.FC<{ className?: string; children?: React.ReactNode } & T>;
-
 declare const IS_DEV: boolean;
 declare const IS_LOCAL: boolean;
 
@@ -50,5 +48,4 @@ type AppConfig = {
 interface Window {
   __APP_CONFIG__: AppConfig;
   Intercom: any;
-  __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any;
 }
