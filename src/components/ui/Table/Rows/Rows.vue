@@ -1,6 +1,6 @@
 <template>
-  <tr v-for="row in data" :key="row" class="tr">
-    <td v-for="column in columns" :key="column.key" class="td">
+  <tr v-for="row in data || []" :key="row" class="tr">
+    <td v-for="column in columns || []" :key="column.key" class="td">
       <div
         v-bind="{
           ...(column.param?.key ? { [`data-${column.param.key}`]: row[column.param.key] } : {}),

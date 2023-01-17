@@ -1,14 +1,14 @@
 <template>
   <thead class="head">
     <tr>
-      <th
+      <!-- <th
         v-for="{ header, key, width = 100 } in columns"
         :key="key"
         :style="{ width: width }"
         class="th"
       >
         {{ header }}
-      </th>
+      </th> -->
     </tr>
   </thead>
 </template>

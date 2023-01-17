@@ -20,15 +20,15 @@ export default defineComponent({
   },
   props: {
     className: {
-      type: Object as PropType<LinkProps["className"]>,
+      type: String,
       required: false,
     },
     link: {
-      type: Object as PropType<LinkProps["link"]>,
+      type: String,
       required: true,
     },
     text: {
-      type: Object as PropType<LinkProps["text"]>,
+      type: String,
       required: true,
     },
   },

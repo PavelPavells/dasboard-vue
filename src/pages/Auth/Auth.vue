@@ -1,7 +1,7 @@
 <template>
-  <Auth>
+  <AuthComponent>
     <section class="auth">
-      <form @submit="handleSubmit">
+      <form>
         <p class="header">Welcome back</p>
         <p class="subheader">Let&apos;s make the most of your Mercuryo experience!</p>
         <div class="wrapper-input">
@@ -24,27 +24,28 @@
             :error="error"
           />
           <Button class="forgot" @click="handleClick" outline>Forgot your password?</Button>
-          <Button class="button" :disabled="isDisable(login, password)" width="140px" type="submit">
+          <Button class="button" :disabled="true" width="140px" type="submit">
             Log in
           </Button>
         </div>
       </form>
     </section>
-  </Auth>
+  </AuthComponent>
 </template>
 
 <script lang="ts">
 // @ts-nocheck
-import { defineComponent, ref } from "vue";
+import { ref } from "vue";
 import { Input, Button } from "@components/ui";
-import { Auth } from "@layouts";
+// import { Auth } from "@layouts";
+import AuthComponent from '../../layouts/Auth/Auth.vue';
 
 export default {
   name: "Auth",
   components: {
     Input,
     Button,
-    Auth,
+    AuthComponent,
   },
   setup() {
     const login = ref("");
@@ -66,7 +67,7 @@ export default {
 
       console.log("handle submit");
     },
-    isDisable: (login: string, password: string) => !login || !password,
+    // isDisable: (login: string, password: string): boolean => !login || !password,
   },
 };
 </script>

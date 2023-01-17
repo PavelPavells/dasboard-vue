@@ -12,13 +12,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import Footer from "@components/Footer/Footer.vue";
+import Footer from '@components/Footer/Footer.vue';
 // import { LogoMain } from "@icons";
 
-export default defineComponent({ name: "AuthComponent", components: { Footer } });
+export default { name: "AuthComponent", components: { Footer } };
 </script>
 
-<style lang="scss">
-@import url("./Auth.scss");
-</style>
+<style lang="scss" src="./Auth.scss"></style>

@@ -175,7 +175,11 @@ module.exports = {
     new webpack.ProvidePlugin({
       CONST: [`${paths.src}/utils/const`, "default"],
     }),
-    new webpack.DefinePlugin({ IS_DEV }),
+    new webpack.DefinePlugin({
+      IS_DEV,
+      __VUE_OPTIONS_API__: false,
+      __VUE_PROD_DEVTOOLS__: false
+    }),
     new webpack.HashedModuleIdsPlugin(),
     new MiniCssExtractPlugin({
       filename: IS_DEV ? "[name].css" : "[name].[chunkhash].css",

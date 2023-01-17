@@ -2,7 +2,7 @@
   <label :show="label" class="label">
     {{ label }}
   </label>
-  <div class="input-wrapper" v-bind:class="cssVars">
+  <div class="input-wrapper" v-bind:class="(error || false, withBorder || true)">
     <div :show="icon" class="icon">{{ icon }}</div>
     <input
       class="input"
@@ -32,14 +32,6 @@ import { InputProps } from "./types";
 
 export default defineComponent({
   name: "InputComponent",
-  computed: {
-    cssVars(): any {
-      return {
-        error: this.$props.error || false,
-        withBorder: this.$props.withBorder || true,
-      };
-    },
-  },
   components: {
     // EyeClosed,
     // EyeOpened,

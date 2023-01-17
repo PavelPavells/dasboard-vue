@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <div v-for="infoLink in infoLinks" class="links" :key="infoLink.link">
+    <div v-for="infoLink in infoLinks || []" class="links" :key="infoLink.link">
       <Link :link="infoLink.link" :text="infoLink.text" />
     </div>
   </footer>

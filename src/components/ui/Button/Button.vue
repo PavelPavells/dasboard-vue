@@ -1,5 +1,5 @@
 <template>
-  <button class="button" v-bind:class="cssVars">
+  <button class="button" v-bind:class="(disabled || false, isLoading || false)">
     <div :show="icon" class="button__icon">{{ icon }}</div>
     <slot />
   </button>
@@ -11,14 +11,6 @@ import { ButtonProps } from "./types";
 
 export default defineComponent({
   name: "ButtonComponent",
-  computed: {
-    cssVars(): any {
-      return {
-        disabled: this.$props.disabled,
-        isLoading: this.$props.isLoading || false,
-      };
-    },
-  },
   data() {
     console.log(this.$props);
   },
