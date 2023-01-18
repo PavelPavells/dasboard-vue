@@ -41,6 +41,7 @@ type AppConfig = {
   branchKey: string;
   card3dsDomain: string;
   env: string;
+  gaId: string;
   websocketUrl: string;
   hostDomain: string;
 };
