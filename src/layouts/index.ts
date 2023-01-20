@@ -1,1 +1,1 @@
-export { default as Auth } from "./Auth/Auth.vue";
+export { default as AuthLayout } from './AuthLayout/AuthLayout.vue';

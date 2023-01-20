@@ -7,13 +7,13 @@
   overflow: hidden;
   background: var(--color-main-bg);
 
-  /*@include media('<=desktop') {
+  @include media('<=desktop') {
     grid-template-columns: 1fr 1fr;
   }
 
   @include media('<=tablet') {
     grid-template-columns: 1fr;
-  }*/
+  }
 }
 
 .logo {
@@ -27,13 +27,13 @@
   justify-content: space-between;
   padding: 31px 64px;
 
-  /*@include media('<=tablet') {
+  @include media('<=tablet') {
     padding-left: 32px;
   }
 
   @include media('<=mobile') {
     padding-top: 16px;
-  }*/
+  }
 }
 
 .inner-wrapper {
@@ -46,7 +46,7 @@
   height: inherit;
   overflow: hidden;
 
-  /*@include media('<=tablet') {
+  @include media('<=tablet') {
     display: none;
-  }*/
+  }
 }

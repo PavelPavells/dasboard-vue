@@ -7,7 +7,7 @@
       </div>
       <Footer />
     </div>
-    <!-- <img src="../../../assets/img/auth/auth.png" class="image" alt="auth_image" /> -->
+    <img src="/img/auth/auth.png" class="image" alt="auth_image" />
   </section>
 </template>
 
@@ -15,7 +15,7 @@
 import Footer from '@components/Footer/Footer.vue';
 // import { LogoMain } from "@icons";
 
-export default { name: "AuthComponent", components: { Footer } };
+export default { name: "AuthLayout", components: { Footer } };
 </script>
 
-<style lang="scss" src="./Auth.scss"></style>
+<style lang="scss" src="./AuthLayout.scss"></style>

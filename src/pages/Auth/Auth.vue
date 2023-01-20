@@ -1,6 +1,6 @@
 <template>
-  <AuthComponent>
-    <section class="auth">
+  <auth-layout>
+    <section class="Auth">
       <form>
         <p class="header">Welcome back</p>
         <p class="subheader">Let&apos;s make the most of your Mercuryo experience!</p>
@@ -24,33 +24,30 @@
             :error="error"
           />
           <Button class="forgot" @click="handleClick" outline>Forgot your password?</Button>
-          <Button class="button" :disabled="true" width="140px" type="submit">
-            Log in
-          </Button>
+          <Button class="button" :disabled="!login || !password" width="140px" type="submit"> Log in </Button>
         </div>
       </form>
     </section>
-  </AuthComponent>
+  </auth-layout>
 </template>
 
 <script lang="ts">
-// @ts-nocheck
-import { ref } from "vue";
-import { Input, Button } from "@components/ui";
-// import { Auth } from "@layouts";
-import AuthComponent from '../../layouts/Auth/Auth.vue';
+//@ts-nocheck
+import { ref } from 'vue';
+import { Input, Button } from '@components/ui';
+import { AuthLayout } from '@layouts';
 
 export default {
-  name: "Auth",
+  name: 'Auth',
   components: {
     Input,
     Button,
-    AuthComponent,
+    AuthLayout,
   },
-  setup() {
-    const login = ref("");
-    const password = ref("");
-    const error = ref("");
+  setup(): { login: string; password: string; error: string } {
+    const login = ref('');
+    const password = ref('');
+    const error = ref('');
 
     return {
       login,
@@ -60,16 +57,18 @@ export default {
   },
   methods: {
     handleClick: () => {
-      console.log("click");
+      console.log('click');
     },
     handleSubmit: (e: Event) => {
       e.preventDefault();
 
-      console.log("handle submit");
+      console.log('handle submit');
     },
-    // isDisable: (login: string, password: string): boolean => !login || !password,
+    isDisable: (login: string, password: string): boolean => !login || !password,
   },
 };
 </script>
 
-<style lang="scss" src="./Auth.scss"></style>
+<style lang="scss" src="./Auth.scss">
+
+</style>

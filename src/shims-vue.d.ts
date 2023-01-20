@@ -5,6 +5,8 @@ declare module "*.vue" {
   export default component
 }
 
+declare module 'vue-bem-cn';
+
 declare module "*.css" {
   const styles: any;
   export = styles;
