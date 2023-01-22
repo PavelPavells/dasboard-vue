@@ -1,6 +1,6 @@
-import { BemCSSModulesType } from "./types";
+// import { BemCSSModulesType } from "./types";
 // import { withNaming } from '@bem-react/classname';
-import { createBem } from '@vuebits/bem';
+// import { createBem } from '@vuebits/bem';
 
 // export const bemClassName = withNaming({ n: '', e: '__', m: '_', v: '_' });
 

@@ -1,17 +1,16 @@
 <template>
-  <section class="widgets"></section>
+  <section class="widgets">WIDGETS</section>
 </template>
 
 <script lang="ts">
-
 export default {
-  name: "HomeView",
+  name: 'WidgetsComponent',
   components: {
     // HelloWorld,
   },
 };
 </script>
 
-<style lang="scss">
-@import url("./Widgets.scss");
+<style>
+@import url('./Widgets.scss');
 </style>

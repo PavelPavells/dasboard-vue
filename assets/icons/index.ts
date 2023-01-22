@@ -1,9 +1,9 @@
-export { default as EyeClosed } from "./EyeClosed.vue";
-export { default as EyeOpened } from "./EyeOpened.vue";
-export { default as ArrowBig } from "./ArrowBig.svg";
-export { default as ArrowDown } from "./ArrowDown.vue";
-export { default as ArrowRight } from "./ArrowRight.vue";
-export { default as ArrowMain } from "./ArrowMain.vue";
-export { default as AvatarMain } from "./AvatarMain.vue";
-export { default as LogoMain } from "./LogoMain.vue";
-export { default as LogoCompact } from "./LogoCompact.vue";
+// export { default as EyeClosed } from './EyeClosed.vue';
+// export { default as EyeOpened } from './EyeOpened.vue';
+// export { default as ArrowBig } from './ArrowBig.vue';
+// export { default as ArrowDown } from './ArrowDown.vue';
+// export { default as ArrowRight } from './ArrowRight.vue';
+// export { default as ArrowMain } from './ArrowMain.vue';
+// export { default as AvatarMain } from './AvatarMain.vue';
+// export { default as LogoMain } from './LogoMain.vue';
+// export { default as LogoCompact } from './LogoCompact.vue';

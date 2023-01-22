@@ -11,11 +11,15 @@
   cursor: pointer;
 }
 
-.disabled {
+.isDisabled {
   color: var(--color-main-light-text);
   background-color: var(--color-main-pale);
   cursor: initial;
   pointer-events: none;
+}
+
+.isLoading {
+  display: block;
 }
 
 .icon {

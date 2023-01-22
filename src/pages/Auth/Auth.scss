@@ -1,59 +1,59 @@
-.Auth {
+.auth {
   display: flex;
+}
 
-  &__header {
-    margin-bottom: 8px;
-    font-family: var(--karloff);
+.auth__header {
+  margin-bottom: 8px;
+  font-family: var(--karloff);
+}
+
+.auth__subheader {
+  margin-bottom: 48px;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.auth__wrapper-input:not(:first-child) {
+  margin-top: 21px;
+}
+
+.auth__button {
+  margin-top: 20px;
+
+  @include media('>mobile') {
+    width: 140px;
   }
-  
-  &__subheader {
-    margin-bottom: 48px;
-    font-size: 16px;
-    line-height: 19px;
-  }
-  
-  &__wrapper-input:not(:first-child) {
-    margin-top: 21px;
-  }
-  
-  &__button {
-    margin-top: 20px;
-  
-    @include media('>mobile') {
-      width: 140px;
-    }
-  }
-  
-  &__forgot {
-    padding: 0;
-    justify-content: start;
-    color: var(--color-main-blue);
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-    text-align: left;
+}
+
+.auth__forgot {
+  padding: 0;
+  justify-content: start;
+  color: var(--color-main-blue);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: left;
+  background-color: var(--color-main-bg);
+}
+
+.auth__modal {
+  @include media('>mobile') {
+    top: 65%;
+    left: 0;
+    max-width: 320px;
+    height: auto;
+    padding: 20px;
     background-color: var(--color-main-bg);
+    border-radius: 16px;
   }
-  
-  &__modal {
-    @include media('>mobile') {
-      top: 65%;
-      left: 0;
-      max-width: 320px;
-      height: auto;
-      padding: 20px;
-      background-color: var(--color-main-bg);
-      border-radius: 16px;
-    }
-  }
-  
-  &__modal-text {
-    font-size: 14px;
-    line-height: 16px;
-  
-    @include media('<=mobile') {
-      font-size: 20px;
-      line-height: 24px;
-    }
+}
+
+.auth__modal-text {
+  font-size: 14px;
+  line-height: 16px;
+
+  @include media('<=mobile') {
+    font-size: 20px;
+    line-height: 24px;
   }
 }

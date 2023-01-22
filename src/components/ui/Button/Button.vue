@@ -1,5 +1,5 @@
 <template>
-  <button class="button" v-bind:class="(disabled || false, isLoading || false)">
+  <button class="button" v-bind:class="(isDisabled || false, isLoading || false)">
     <div :show="icon" class="button__icon">{{ icon }}</div>
     <slot />
   </button>
@@ -33,13 +33,13 @@ export default defineComponent({
     icon: {
       type: Object as PropType<ButtonProps['icon']>,
     },
-    disabled: {
-      type: Object as PropType<ButtonProps['disabled']>,
+    isDisabled: {
+      type: Object as PropType<ButtonProps['isDisabled']>,
     },
   },
 });
 </script>
 
-<style lang="scss">
+<style>
 @import url('./Button.scss');
 </style>

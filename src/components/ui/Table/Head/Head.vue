@@ -1,24 +1,24 @@
 <template>
   <thead class="head">
     <tr>
-      <!-- <th
+      <th
         v-for="{ header, key, width = 100 } in columns"
         :key="key"
         :style="{ width: width }"
         class="th"
       >
         {{ header }}
-      </th> -->
+      </th>
     </tr>
   </thead>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
-import { ColumnType } from "../types";
+import { defineComponent, PropType } from 'vue';
+import { ColumnType } from '../types';
 
 export default defineComponent({
-  name: "HeadComponent",
+  name: 'HeadComponent',
   props: {
     columns: {
       type: Object as PropType<ColumnType[]>,
@@ -29,5 +29,5 @@ export default defineComponent({
 </script>
 
 <style>
-@import url("./Head.scss");
+@import url('./Head.scss');
 </style>

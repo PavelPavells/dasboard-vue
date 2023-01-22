@@ -50,3 +50,19 @@
     display: none;
   }
 }
+
+.image-wrapper {
+  display: flex;
+  height: inherit;
+  overflow: hidden;
+}
+
+.image {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+
+  @include media('<=tablet') {
+    display: none;
+  }
+}

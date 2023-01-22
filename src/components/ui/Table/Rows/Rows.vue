@@ -14,18 +14,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
-import { TableProps } from "../types";
+import { defineComponent, PropType } from 'vue';
+import { TableProps } from '../types';
 
 export default defineComponent({
-  name: "RowsComponent",
+  name: 'RowsComponent',
   props: {
     data: {
-      type: Object as PropType<TableProps["data"]>,
+      type: Object as PropType<TableProps['data']>,
       required: true,
     },
     columns: {
-      type: Object as PropType<TableProps["columns"]>,
+      type: Object as PropType<TableProps['columns']>,
       required: true,
     },
   },
@@ -33,5 +33,5 @@ export default defineComponent({
 </script>
 
 <style>
-@import url("./Rows.scss");
+@import url('./Rows.scss');
 </style>

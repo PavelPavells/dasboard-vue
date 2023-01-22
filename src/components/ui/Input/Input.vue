@@ -26,12 +26,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, VueElement } from "vue";
+import { defineComponent, PropType, VueElement } from 'vue';
 // import { EyeClosed, EyeOpened } from "@icons";
-import { InputProps } from "./types";
+import { InputProps } from './types';
 
 export default defineComponent({
-  name: "InputComponent",
+  name: 'InputComponent',
   components: {
     // EyeClosed,
     // EyeOpened,
@@ -49,7 +49,7 @@ export default defineComponent({
       this.state.masked = !this.state.masked;
     },
     setIsPasswordType() {
-      this.state.masked = this.$props.type === "password";
+      this.state.masked = this.$props.type === 'password';
     },
     switchMasked() {
       this.state.masked = !this.state.masked;
@@ -57,36 +57,36 @@ export default defineComponent({
   },
   props: {
     withBorder: {
-      type: Boolean as PropType<InputProps["withBorder"]>,
+      type: Boolean as PropType<InputProps['withBorder']>,
     },
     label: {
-      type: String as PropType<InputProps["label"]>,
+      type: String as PropType<InputProps['label']>,
     },
     modelValue: {
-      type: Object as PropType<InputProps["modelValue"]>,
+      type: Object as PropType<InputProps['modelValue']>,
     },
     error: {
-      type: String as PropType<InputProps["error"]>,
+      type: String as PropType<InputProps['error']>,
     },
     icon: {
-      type: VueElement as PropType<InputProps["icon"]>,
+      type: VueElement as PropType<InputProps['icon']>,
     },
     showMask: {
-      type: Boolean as PropType<InputProps["showMask"]>,
+      type: Boolean as PropType<InputProps['showMask']>,
     },
     withIcon: {
-      type: Boolean as PropType<InputProps["withIcon"]>,
+      type: Boolean as PropType<InputProps['withIcon']>,
     },
     isLoading: {
-      type: Boolean as PropType<InputProps["isLoading"]>,
+      type: Boolean as PropType<InputProps['isLoading']>,
     },
     type: {
-      type: String as PropType<InputProps["type"]>,
+      type: String as PropType<InputProps['type']>,
     },
   },
 });
 </script>
 
-<style lang="scss">
-@import url("./Input.scss");
+<style>
+@import url('./Input.scss');
 </style>

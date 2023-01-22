@@ -9,16 +9,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
-import { IconProps } from "./types";
+import { PropType } from 'vue';
+import { IconProps } from './types';
 
-export default defineComponent({
-  name: "ArrowBig",
+export default {
+  name: 'ArrowBig',
   props: {
-    width: Object as PropType<IconProps["width"]>,
+    width: Object as PropType<IconProps['width']>,
   },
   color: {
-    type: Object as PropType<IconProps["color"]>,
+    type: Object as PropType<IconProps['color']>,
   },
-});
+};
 </script>

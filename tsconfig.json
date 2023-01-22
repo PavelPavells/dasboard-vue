@@ -18,7 +18,7 @@
       "node"
     ],
     "paths": {
-      "@icons": ["assets/icons"],
+      "@icons": ["./assets/icons"],
       "@assets/*": ["./assets/*"],
       "@styles/*": ["./src/styles/*"],
       "@utils": ["./src/utils"],
@@ -52,6 +52,7 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
+    "*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
   ],

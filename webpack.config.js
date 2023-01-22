@@ -34,6 +34,7 @@ const AUTOOPEN = WEBPACK_LOCAL_CONFIG.open || false;
 const aliases = {
   '@src': paths.src,
   '@assets': paths.assets,
+  '@icons': `${paths.assets}/icons`,
   '@api': `${paths.src}/api`,
   '@types': `${paths.src}/types`,
   '@styles': `${paths.src}/styles`,
@@ -91,14 +92,6 @@ module.exports = {
         },
       },
       {
-        test: /\.ts$/,
-        exclude: /(node_modules)/,
-        use: {
-          loader: 'ts-loader',
-          options: { appendTsSuffixTo: [/\.vue$/] },
-        },
-      },
-      {
         test: /\.tsx?$/,
         loader: 'ts-loader',
         exclude: /node_modules/,
@@ -117,9 +110,8 @@ module.exports = {
           loader: 'url-loader',
         },
       },
-      { test: /\.css$/, loader: 'style-loader!css-loader' },
       {
-        test: /\.(sass|scss)$/,
+        test: /\.scss$/,
         use: [
           IS_DEV ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
           {
@@ -150,6 +142,7 @@ module.exports = {
           },
         ],
       },
+      { test: /\.css$/, loader: 'style-loader!css-loader' },
       {
         test: /\.svg$/,
         use: [

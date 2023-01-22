@@ -1,10 +1,10 @@
 <template>
   <auth-layout>
-    <section class="Auth">
+    <section class="auth">
       <form>
-        <p class="header">Welcome back</p>
-        <p class="subheader">Let&apos;s make the most of your Mercuryo experience!</p>
-        <div class="wrapper-input">
+        <p class="auth__header">Welcome back</p>
+        <p class="auth__subheader">Let&apos;s make the most of your Mercuryo experience!</p>
+        <div class="auth__wrapper-input">
           <Input
             label="Email"
             type="email"
@@ -14,7 +14,7 @@
             v-model="login"
           />
         </div>
-        <div class="wrapper-input">
+        <div class="auth__wrapper-input">
           <Input
             label="Password"
             type="password"
@@ -23,8 +23,15 @@
             v-model="password"
             :error="error"
           />
-          <Button class="forgot" @click="handleClick" outline>Forgot your password?</Button>
-          <Button class="button" :disabled="!login || !password" width="140px" type="submit"> Log in </Button>
+          <Button class="auth__forgot" @click="handleClick" outline>Forgot your password?</Button>
+          <Button
+            class="auth__button"
+            :isDisabled="!login && !password"
+            width="140px"
+            type="submit"
+          >
+            Log in
+          </Button>
         </div>
       </form>
     </section>
@@ -32,19 +39,18 @@
 </template>
 
 <script lang="ts">
-//@ts-nocheck
-import { ref } from 'vue';
+import { ref, Ref } from 'vue';
 import { Input, Button } from '@components/ui';
 import { AuthLayout } from '@layouts';
 
 export default {
-  name: 'Auth',
+  name: 'AuthComponent',
   components: {
     Input,
     Button,
     AuthLayout,
   },
-  setup(): { login: string; password: string; error: string } {
+  data(): { login: Ref<string>; password: Ref<string>; error: Ref<string> } {
     const login = ref('');
     const password = ref('');
     const error = ref('');
@@ -56,19 +62,21 @@ export default {
     };
   },
   methods: {
-    handleClick: () => {
+    handleClick: (): void => {
       console.log('click');
     },
-    handleSubmit: (e: Event) => {
+    handleSubmit: (e: Event): void => {
       e.preventDefault();
 
       console.log('handle submit');
     },
-    isDisable: (login: string, password: string): boolean => !login || !password,
+    handleDisable: function (login: string, password: string): boolean {
+      return !login.length || !password.length;
+    },
   },
 };
 </script>
 
-<style lang="scss" src="./Auth.scss">
-
+<style>
+@import url('./Auth.scss');
 </style>

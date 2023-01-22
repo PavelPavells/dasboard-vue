@@ -7,15 +7,19 @@
       </div>
       <Footer />
     </div>
-    <img src="/img/auth/auth.png" class="image" alt="auth_image" />
+    <div class="image-wrapper">
+      <img src="/img/auth/auth.png" class="image" alt="auth_image" />
+    </div>
   </section>
 </template>
 
 <script lang="ts">
 import Footer from '@components/Footer/Footer.vue';
-// import { LogoMain } from "@icons";
+// import { LogoMain } from '@icons';
 
-export default { name: "AuthLayout", components: { Footer } };
+export default { name: 'AuthLayout', components: { Footer } };
 </script>
 
-<style lang="scss" src="./AuthLayout.scss"></style>
+<style>
+@import url('./AuthLayout.scss');
+</style>

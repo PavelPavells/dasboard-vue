@@ -1,36 +1,37 @@
 <template>
-  <a class="link" v-bind:href="currentHref" rel="noreferrer" target="_blank">
+  <a
+    class="link"
+    v-bind:link="
+      link !== '/help'
+        ? `https://mercuryo.io${link}?utm_source=my.mercuryo&utm_medium=referral`
+        : 'https://help.mercuryo.io'
+    "
+    rel="noreferrer"
+    target="_blank"
+  >
     {{ text }}
   </a>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
-import { LinkProps } from "./types";
+import { PropType } from 'vue';
+import { LinkProps } from './types';
 
-export default defineComponent({
-  name: "LinkComponent",
-  data() {
-    const currentHref =
-      this.$props.link !== "/help"
-        ? `https://mercuryo.io${this.$props.link}?utm_source=my.mercuryo&utm_medium=referral`
-        : "https://help.mercuryo.io";
-
-    return { currentHref };
-  },
+export default {
+  name: 'LinkComponent',
   props: {
     className: {
-      type: String,
+      type: Object as PropType<LinkProps['className']>,
       required: false,
     },
     link: {
-      type: String,
+      type: Object as PropType<LinkProps['link']>,
       required: true,
     },
     text: {
-      type: String,
+      type: Object as PropType<LinkProps['text']>,
       required: true,
     },
   },
-});
+};
 </script>
