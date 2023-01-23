@@ -1,15 +1,13 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import { Auth, Widgets } from "@pages";
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import { Auth, Widgets } from '@pages';
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "/login", // CONST.nav.login,
-    name: "auth",
+    path: CONST.nav.login,
     component: Auth,
   },
   {
-    path: "/widgets", // CONST.nav.widgets,
-    name: "widgets",
+    path: CONST.nav.widgets,
     component: Widgets,
   },
 ];

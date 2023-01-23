@@ -14,10 +14,11 @@
     "baseUrl": ".",
     "types": [
       "webpack-env",
-      "jest"
+      "jest",
+      "node"
     ],
     "paths": {
-      "@icons": ["assets/icons"],
+      "@icons": ["./assets/icons"],
       "@assets/*": ["./assets/*"],
       "@styles/*": ["./src/styles/*"],
       "@utils": ["./src/utils"],
@@ -26,8 +27,6 @@
       "@components/*": ["./src/components/*"],
       "@containers": ["./src/containers"],
       "@containers/*": ["./src/containers/*"],
-      "@selectors": ["./src/selectors"],
-      "@selectors/*": ["./src/selectors/*"],
       "@modules": ["./src/modules"],
       "@modules/*": ["./src/modules/*"],
       "@layouts": ["./src/layouts"],
@@ -53,6 +52,7 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
+    "*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
   ],

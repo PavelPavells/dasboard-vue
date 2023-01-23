@@ -1,13 +1,10 @@
 /* eslint-disable */
-declare module "*.vue" {
-  import type { DefineComponent } from "vue"
-  const component: DefineComponent<{}, {}, any>
-  export default component
-}
+declare module "*.vue"
+declare module "*.ts"
 
 declare module "*.css" {
   const styles: any;
-  export = styles;
+  export default styles;
 }
 
 declare module "*.png" {
@@ -29,8 +26,6 @@ type UnwrapPromise<T> = T extends Promise<infer U>
   ? U
   : T;
 
-type CustomFC<T = unknown> = React.FC<{ className?: string; children?: React.ReactNode } & T>;
-
 declare const IS_DEV: boolean;
 declare const IS_LOCAL: boolean;
 
@@ -43,6 +38,7 @@ type AppConfig = {
   branchKey: string;
   card3dsDomain: string;
   env: string;
+  gaId: string;
   websocketUrl: string;
   hostDomain: string;
 };
@@ -50,5 +46,4 @@ type AppConfig = {
 interface Window {
   __APP_CONFIG__: AppConfig;
   Intercom: any;
-  __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any;
 }

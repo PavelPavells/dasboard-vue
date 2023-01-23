@@ -2,6 +2,15 @@
 node_modules
 /dist
 
+node_modules
+
+assets/conf.local.js
+webpack-local.config.js
+screenshots
+
+src/api/mocks.ts
+
+
 
 # local env files
 .env.local

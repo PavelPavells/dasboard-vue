@@ -40,11 +40,11 @@
   --box-shadow-sidebar: 0 4px 8px 0 hsla(240deg, 17%, 24%, 0.01),
     0 4px 4px 0 hsla(0deg, 0%, 0%, 0.08);
 
-  // @include media('<=desktop') {
-  //   --space-content-x: 128px;
-  // }
+  @include media('<=desktop') {
+    --space-content-x: 128px;
+  }
 
-  // @include media('<=mobile') {
-  //   --space-content-x: 32px;
-  // }
+  @include media('<=mobile') {
+    --space-content-x: 32px;
+  }
 }

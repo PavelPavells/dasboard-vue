@@ -1,23 +1,28 @@
 /* Global definitions for development */
 
 // for style loader
-declare module "*.css" {
+declare module '*.css' {
   const styles: any;
   export = styles;
 }
 
-declare module "*.png" {
+declare module '*.vue' {
+  import Vue from 'vue';
+  export default Vue;
+}
+
+declare module '*.png' {
   const value: any;
   export default value;
 }
 
 // for style loader
-declare module "*.scss" {
+declare module '*.scss' {
   const content: Record<string, string>;
   export default content;
 }
 
-declare module "*.svg" {
+declare module '*.svg' {
   const svgComponent: React.FC<React.SVGProps<SVGSVGElement>>;
   export default svgComponent;
 }

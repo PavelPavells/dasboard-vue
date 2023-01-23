@@ -15,9 +15,9 @@
 
 html,
 body,
-#app {
+body > div {
   height: 100%;
-  color: var(--color-main-text);
+  color: var(--color-main-dark-text);
   font-size: 17px;
   font-family: var(--brutal);
   line-height: 21px;
@@ -131,9 +131,9 @@ button {
   &:active {
     color: var(--color-action-link-tapped);
 
-    // @include media('<=tablet') {
-    //   color: var(--color-action-link);
-    // }
+    @include media('<=tablet') {
+      color: var(--color-action-link);
+    }
   }
 }
 
@@ -166,10 +166,10 @@ h1,
   font-family: var(--brutal);
   line-height: 50px;
 
-  // @include media('<=tablet') {
-  //   font-size: 32px;
-  //   line-height: 32px;
-  // }
+  @include media('<=tablet') {
+    font-size: 32px;
+    line-height: 32px;
+  }
 }
 
 h2,
@@ -179,10 +179,10 @@ h2,
   font-family: var(--brutal);
   line-height: 44px;
 
-  // @include media('<=tablet') {
-  //   font-size: 27px;
-  //   line-height: 32px;
-  // }
+  @include media('<=tablet') {
+    font-size: 27px;
+    line-height: 32px;
+  }
 }
 
 h3,

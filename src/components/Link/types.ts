@@ -1,5 +1,5 @@
 export type LinkProps = {
-  className: string;
+  className?: string;
   link: string;
   text: string;
 };

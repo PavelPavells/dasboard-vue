@@ -1,4 +1,4 @@
-import { VueElement } from "vue";
+import { VueElement } from 'vue';
 
 export type ButtonProps = {
   className?: string;
@@ -7,5 +7,5 @@ export type ButtonProps = {
   width?: string;
   fullWidth?: boolean;
   icon?: VueElement;
-  disabled?: boolean;
+  isDisabled?: boolean;
 };

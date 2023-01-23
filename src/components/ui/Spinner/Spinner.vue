@@ -16,35 +16,36 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
-import { SpinnerProps } from "./types";
+import { defineComponent, PropType } from 'vue';
+import { SpinnerProps } from './types';
 
 export default defineComponent({
-  name: "SpinnerComponent",
+  name: 'SpinnerComponent',
   data() {
     return {
       state: {
-        color: "#ebebeb",
+        color: '#ebebeb',
       },
     };
   },
   computed: {
     cssVars() {
       return {
-        "--size": this.$props.size,
+        '--size': this.$props.size,
       };
     },
   },
   props: {
     color: {
-      type: Object as PropType<SpinnerProps["color"]>,
+      type: Object as PropType<SpinnerProps['color']>,
     },
     size: {
-      type: Object as PropType<SpinnerProps["size"]>,
+      type: Object as PropType<SpinnerProps['size']>,
     },
   },
 });
 </script>
-<style lang="scss">
-@import url("./Spinner.scss");
+
+<style>
+@import url('./Spinner.scss');
 </style>

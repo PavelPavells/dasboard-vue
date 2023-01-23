@@ -8,16 +8,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
-import { IconProps } from "./types";
+import { PropType } from 'vue';
+import { IconProps } from './types';
 
-export default defineComponent({
-  name: "ArrowRight",
+export default {
+  name: 'ArrowRight',
   props: {
-    width: Object as PropType<IconProps["width"]>,
+    width: {
+      type: Object as PropType<IconProps['width']>,
+    },
+    color: {
+      type: Object as PropType<IconProps['color']>,
+    },
   },
-  color: {
-    type: Object as PropType<IconProps["color"]>,
-  },
-});
+};
 </script>
