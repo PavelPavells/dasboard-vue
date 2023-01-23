@@ -28,7 +28,7 @@ export default defineComponent({
   },
   computed: {
     getIcon() {
-      return icons[this.name];
+      return iconsList[this.name];
     },
   },
 });

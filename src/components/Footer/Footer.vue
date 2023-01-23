@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <div v-for="({ link, text }, index) in infoLinks" class="links" :key="index">
+    <div v-for="({ link, text }, index) in links" class="links" :key="index">
       <Link :link="link" :text="text" />
     </div>
   </footer>
@@ -9,7 +9,6 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import Link from '../Link/Link.vue';
-import { infoLinks } from './const';
 import { FooterProps } from './types';
 
 export default defineComponent({
@@ -18,7 +17,7 @@ export default defineComponent({
     Link,
   },
   setup() {
-    return { infoLinks };
+    return { links: CONST.infoLinks };
   },
   props: {
     className: {
