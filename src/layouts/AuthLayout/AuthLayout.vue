@@ -1,8 +1,8 @@
 <template>
   <section class="wrapper">
     <div class="content">
+      <Icon name="logo_main" class="logo" />
       <div class="inner-wrapper">
-        <!-- <LogoMain name="main_logo" class="logo" /> -->
         <slot />
       </div>
       <Footer />
@@ -15,9 +15,9 @@
 
 <script lang="ts">
 import Footer from '@components/Footer/Footer.vue';
-// import { LogoMain } from '@icons';
+import { Icon } from '@components/ui';
 
-export default { name: 'AuthLayout', components: { Footer } };
+export default { name: 'AuthLayout', components: { Icon, Footer } };
 </script>
 
 <style>

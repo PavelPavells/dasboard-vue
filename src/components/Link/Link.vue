@@ -1,14 +1,5 @@
 <template>
-  <a
-    class="link"
-    v-bind:link="
-      link !== '/help'
-        ? `https://mercuryo.io${link}?utm_source=my.mercuryo&utm_medium=referral`
-        : 'https://help.mercuryo.io'
-    "
-    rel="noreferrer"
-    target="_blank"
-  >
+  <a class="link" v-bind:href="href" rel="noreferrer" target="_blank">
     {{ text }}
   </a>
 </template>
@@ -19,19 +10,31 @@ import { LinkProps } from './types';
 
 export default {
   name: 'LinkComponent',
+  setup(props: any): { href: string } {
+    const href =
+      props.link !== '/help'
+        ? `https://mercuryo.io${props.link}?utm_source=my.mercuryo&utm_medium=referral`
+        : 'https://help.mercuryo.io';
+
+    return { href };
+  },
   props: {
     className: {
-      type: Object as PropType<LinkProps['className']>,
+      type: String as PropType<LinkProps['className']>,
       required: false,
     },
     link: {
-      type: Object as PropType<LinkProps['link']>,
+      type: String as PropType<LinkProps['link']>,
       required: true,
     },
     text: {
-      type: Object as PropType<LinkProps['text']>,
+      type: String as PropType<LinkProps['text']>,
       required: true,
     },
   },
 };
 </script>
+
+<style>
+@import url('./Link.scss');
+</style>

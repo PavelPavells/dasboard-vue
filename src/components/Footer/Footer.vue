@@ -1,24 +1,24 @@
 <template>
   <footer class="footer">
-    <div v-for="infoLink in infoLinks" class="links" :key="infoLink.link">
-      <Link :link="infoLink.link" :text="infoLink.text" />kjhgfgkjgh
+    <div v-for="({ link, text }, index) in infoLinks" class="links" :key="index">
+      <Link :link="link" :text="text" />
     </div>
   </footer>
 </template>
 
 <script lang="ts">
-import { PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import Link from '../Link/Link.vue';
 import { infoLinks } from './const';
-import { FooterProps, InfoLinksType } from './types';
+import { FooterProps } from './types';
 
-export default {
+export default defineComponent({
   name: 'FooterComponent',
   components: {
     Link,
   },
-  data() {
-    return infoLinks;
+  setup() {
+    return { infoLinks };
   },
   props: {
     className: {
@@ -26,7 +26,7 @@ export default {
       required: false,
     },
   },
-};
+});
 </script>
 
 <style>

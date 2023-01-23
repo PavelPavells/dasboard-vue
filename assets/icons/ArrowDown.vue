@@ -11,10 +11,12 @@ import { IconProps } from './types';
 export default {
   name: 'ArrowDown',
   props: {
-    width: Object as PropType<IconProps['width']>,
-  },
-  color: {
-    type: Object as PropType<IconProps['color']>,
+    width: {
+      type: Object as PropType<IconProps['width']>,
+    },
+    color: {
+      type: Object as PropType<IconProps['color']>,
+    },
   },
 };
 </script>
