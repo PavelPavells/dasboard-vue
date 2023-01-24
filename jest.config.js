@@ -1,3 +1,9 @@
 module.exports = {
-  preset: "@vue/cli-plugin-unit-jest/presets/typescript-and-babel",
+  moduleNameMapper: {
+    '^(.*\\.svg)\\?inline$': '$1',
+  },
+  transform: {
+    '\\.svg$': 'vue-jest',
+    '\\.vue$': 'vue-jest',
+  },
 };

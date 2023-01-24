@@ -145,18 +145,7 @@ module.exports = {
       { test: /\.css$/, loader: 'style-loader!css-loader' },
       {
         test: /\.svg$/,
-        use: [
-          'babel-loader',
-          {
-            loader: 'vue-svg-loader',
-            options: {
-              svgo: {
-                plugins: [{ removeTitle: false }],
-                floatPrecision: 2,
-              },
-            },
-          },
-        ],
+        use: ['babel-loader', 'svg-vue3-loader'],
       },
     ],
   },

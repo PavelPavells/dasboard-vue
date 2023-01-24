@@ -1,7 +1,7 @@
 <template>
   <section class="wrapper">
     <div class="content">
-      <Icon name="logo_main" class="logo" />
+      <base-icon name="logo_main" class="logo" />
       <div class="inner-wrapper">
         <slot />
       </div>
@@ -14,10 +14,14 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue';
 import Footer from '@components/Footer/Footer.vue';
-import { Icon } from '@components/ui';
+import { BaseIcon } from '@components/ui';
 
-export default { name: 'AuthLayout', components: { Icon, Footer } };
+export default defineComponent({
+  name: 'AuthLayout',
+  components: { BaseIcon, Footer },
+});
 </script>
 
 <style>

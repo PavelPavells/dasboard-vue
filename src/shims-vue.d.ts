@@ -12,6 +12,13 @@ declare module "*.png" {
   export default value;
 }
 
+declare module '*.svg' {
+  import Vue, { VueConstructor } from 'vue';
+  const content: VueConstructor<Vue>;
+
+  export default content;
+}
+
 declare module "*.scss" {
   const content: Record<string, string>;
   export default content;
@@ -36,7 +43,7 @@ type AppConfig = {
   wssScheme: string;
   apiVersion: string;
   branchKey: string;
-  card3dsDomain: string;
+
   env: string;
   gaId: string;
   websocketUrl: string;
@@ -46,4 +53,23 @@ type AppConfig = {
 interface Window {
   __APP_CONFIG__: AppConfig;
   Intercom: any;
+  requestIdleCallback(
+    callback: IdleRequestCallback,
+    options?: IdleRequestOptions | undefined
+  ): number;
+  __APP_CONFIG__: AppConfig;
+  Intercom: any;
+  __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any;
+  grecaptcha: any;
+  idensic: any;
+  i18n: any;
+  dataLayer: any;
+  ga: any;
+  branch: any;
+  HOST_DOMAIN: any;
+  sessionStarted: any;
+  applePaySession: any;
+  resolveMobilePay: any;
+  ApplePaySession: any;
+  google: any;
 }
