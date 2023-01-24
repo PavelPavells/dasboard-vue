@@ -2,8 +2,7 @@
   <label :show="label" class="label">
     {{ label }}
   </label>
-  <div class="input-wrapper" v-bind:class="(error || false, withBorder || true)">
-    <div :show="icon" class="icon">{{ icon }}</div>
+  <div class="input-wrapper" v-bind:class="withBorder && 'withBorder', error && 'error'">
     <input
       class="input"
       :type="type"
@@ -16,8 +15,8 @@
       type="button"
       @click="setMasked"
     >
-      <!-- <EyeClosed :show="withIcon && state.masked" class="eye-icon" />
-      <EyeOpened :show="withIcon && !state.masked" class="eye-icon" /> -->
+      <BaseIcon :v-show="masked" name="eye_closed" class="icon" />
+      <BaseIcon :v-show="!masked" name="eye_opened" class="icon" />
     </button>
   </div>
   <div class="error-wrapper" :active="error">
@@ -27,14 +26,17 @@
 
 <script lang="ts">
 import { defineComponent, PropType, VueElement } from 'vue';
-// import { EyeClosed, EyeOpened } from "@icons";
+import BaseIcon from '../BaseIcon/BaseIcon.vue';
 import { InputProps } from './types';
 
 export default defineComponent({
   name: 'InputComponent',
-  components: {
-    // EyeClosed,
-    // EyeOpened,
+  setup(props) {
+    const masked = props.type === 'password';
+    const withBorder = props.withBorder;
+    const error = props.error || '';
+
+    return { masked, withBorder, error };
   },
   data() {
     return {
@@ -46,18 +48,19 @@ export default defineComponent({
   },
   methods: {
     setMasked() {
-      this.state.masked = !this.state.masked;
-    },
-    setIsPasswordType() {
-      this.state.masked = this.$props.type === 'password';
+      this.masked = !this.masked;
     },
     switchMasked() {
-      this.state.masked = !this.state.masked;
+      this.masked = !this.masked;
     },
+  },
+  components: {
+    BaseIcon,
   },
   props: {
     withBorder: {
       type: Boolean as PropType<InputProps['withBorder']>,
+      default: true,
     },
     label: {
       type: String as PropType<InputProps['label']>,

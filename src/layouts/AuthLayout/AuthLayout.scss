@@ -17,7 +17,7 @@
 }
 
 .logo {
-  max-width: 110px;
+  max-width: 140px;
   margin-bottom: 50px;
 }
 
@@ -34,10 +34,6 @@
   @include media('<=mobile') {
     padding-top: 16px;
   }
-}
-
-.inner-wrapper {
-  position: relative;
 }
 
 .image {

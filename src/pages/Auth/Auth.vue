@@ -26,7 +26,7 @@
           <Button class="auth__forgot" @click="handleClick" outline>Forgot your password?</Button>
           <Button
             class="auth__button"
-            :isDisabled="!login && !password"
+            :isDisabled="login.length === 0 || password.length === 0"
             width="140px"
             type="submit"
           >
@@ -39,21 +39,22 @@
 </template>
 
 <script lang="ts">
-import { ref, Ref } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { Input, Button } from '@components/ui';
 import { AuthLayout } from '@layouts';
 
-export default {
-  name: 'AuthComponent',
+export default defineComponent({
   components: {
     Input,
     Button,
     AuthLayout,
   },
-  data(): { login: Ref<string>; password: Ref<string>; error: Ref<string> } {
+  setup() {
     const login = ref('');
     const password = ref('');
     const error = ref('');
+
+    console.log(login);
 
     return {
       login,
@@ -62,19 +63,16 @@ export default {
     };
   },
   methods: {
-    handleClick: (): void => {
+    handleClick(): void {
       console.log('click');
     },
-    handleSubmit: (e: Event): void => {
+    handleSubmit(e: Event): void {
       e.preventDefault();
 
       console.log('handle submit');
     },
-    handleDisable: function (login: string, password: string): boolean {
-      return !login.length || !password.length;
-    },
   },
-};
+});
 </script>
 
 <style>
