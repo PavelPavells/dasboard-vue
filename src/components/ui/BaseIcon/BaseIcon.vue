@@ -1,5 +1,5 @@
 <template>
-  <component :is="getIcon" />
+  <component :is="icon" />
 </template>
 
 <script lang="ts">
@@ -30,27 +30,16 @@ export const iconsList: IconsProps = {
 };
 
 export default defineComponent({
+  setup(props) {
+    const icon = iconsList[props.name];
+
+    return { icon };
+  },
   props: {
     name: {
       type: String as PropType<keyof typeof iconsList>,
       required: true,
     },
-  },
-  computed: {
-    getIcon() {
-      return iconsList[this.name];
-    },
-  },
-  components: {
-    ArrowBig,
-    ArrowDown,
-    ArrowMain,
-    ArrowRight,
-    AvatarMain,
-    EyeClosed,
-    EyeOpened,
-    LogoCompact,
-    LogoMain,
   },
 });
 </script>

@@ -1,8 +1,8 @@
 <template>
   <section class="wrapper">
     <div class="content">
-      <base-icon name="logo_main" class="logo" />
       <div class="inner-wrapper">
+        <BaseIcon name="logo_main" class="logo" />
         <slot />
       </div>
       <Footer />
@@ -14,14 +14,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
 import Footer from '@components/Footer/Footer.vue';
 import { BaseIcon } from '@components/ui';
 
-export default defineComponent({
-  name: 'AuthLayout',
+export default {
   components: { BaseIcon, Footer },
-});
+};
 </script>
 
 <style>
