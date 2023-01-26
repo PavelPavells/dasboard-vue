@@ -1,40 +1,50 @@
 <template>
-  <button class="button" v-bind:class="(isDisabled || false, isLoading || false)">
-    <div :show="icon" class="button__icon">{{ icon }}</div>
+  <button :type="type" class="button" :class="{ disabled: hasDisabled, loading: isLoading }">
+    <div v-if="icon" class="button__icon">{{ icon }}</div>
     <slot />
   </button>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, VueElement, PropType, computed } from 'vue';
 import { ButtonProps } from './types';
 
 export default defineComponent({
-  name: 'ButtonComponent',
-  data() {
-    console.log(this.$props);
+  setup(props) {
+    const hasDisabled = computed(() => {
+      return props.isDisabled ? 'disabled' : '';
+    });
+
+    const hasLoading = computed(() => {
+      return props.isLoading ? 'loading' : '';
+    });
+
+    return { hasDisabled, hasLoading };
   },
   props: {
+    type: {
+      type: String as PropType<ButtonProps['type']>,
+    },
     className: {
-      type: Object as PropType<ButtonProps['className']>,
+      type: String as PropType<ButtonProps['className']>,
     },
     isLoading: {
-      type: Object as PropType<ButtonProps['isLoading']>,
+      type: Boolean as PropType<ButtonProps['isLoading']>,
     },
     outline: {
-      type: Object as PropType<ButtonProps['outline']>,
+      type: Boolean as PropType<ButtonProps['outline']>,
     },
     width: {
-      type: Object as PropType<ButtonProps['width']>,
+      type: String as PropType<ButtonProps['width']>,
     },
     fullWidth: {
-      type: Object as PropType<ButtonProps['fullWidth']>,
+      type: Boolean as PropType<ButtonProps['fullWidth']>,
     },
     icon: {
-      type: Object as PropType<ButtonProps['icon']>,
+      type: VueElement as PropType<ButtonProps['icon']>,
     },
     isDisabled: {
-      type: Object as PropType<ButtonProps['isDisabled']>,
+      type: Boolean as PropType<ButtonProps['isDisabled']>,
     },
   },
 });

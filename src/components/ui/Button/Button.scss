@@ -11,14 +11,14 @@
   cursor: pointer;
 }
 
-.isDisabled {
+.disabled {
   color: var(--color-main-light-text);
   background-color: var(--color-main-pale);
   cursor: initial;
   pointer-events: none;
 }
 
-.isLoading {
+.loading {
   display: block;
 }
 

@@ -2,21 +2,17 @@
   <label :show="label" class="label">
     {{ label }}
   </label>
-  <div class="input-wrapper" v-bind:class="withBorder && 'withBorder', error && 'error'">
+  <div class="input-wrapper" :class="stylesObj">
     <input
       class="input"
       :type="type"
-      :value="modelValue"
-      @change="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+      :placeholder="placeholder"
+      :value="value"
+      @input="$emit('update:value', ($event.target as HTMLInputElement).value)"
     />
-    <button
-      :show="showMask && state.isPasswordType"
-      class="switch-masked"
-      type="button"
-      @click="setMasked"
-    >
-      <BaseIcon :v-show="masked" name="eye_closed" class="icon" />
-      <BaseIcon :v-show="!masked" name="eye_opened" class="icon" />
+    <button :show="getShowMask" class="switch-masked" type="button" @click="switchMasked">
+      <BaseIcon :show="getMask" name="eye_closed" class="icon" />
+      <BaseIcon :show="!getMask" name="eye_opened" class="icon" />
     </button>
   </div>
   <div class="error-wrapper" :active="error">
@@ -25,31 +21,31 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, VueElement } from 'vue';
+import { defineComponent, toRefs, PropType, VueElement } from 'vue';
 import BaseIcon from '../BaseIcon/BaseIcon.vue';
 import { InputProps } from './types';
 
 export default defineComponent({
-  name: 'InputComponent',
   setup(props) {
-    const masked = props.type === 'password';
-    const withBorder = props.withBorder;
-    const error = props.error || '';
+    const { withBorder, error } = toRefs(props);
 
-    return { masked, withBorder, error };
-  },
-  data() {
     return {
-      state: {
-        masked: true,
-        isPasswordType: false,
+      masked: true,
+      error,
+      stylesObj: {
+        'with-border': withBorder,
       },
     };
   },
-  methods: {
-    setMasked() {
-      this.masked = !this.masked;
+  computed: {
+    getShowMask() {
+      return this.showMask && this.type === 'password';
     },
+    getMask() {
+      return this.masked && this.type === 'password';
+    },
+  },
+  methods: {
     switchMasked() {
       this.masked = !this.masked;
     },
@@ -65,8 +61,11 @@ export default defineComponent({
     label: {
       type: String as PropType<InputProps['label']>,
     },
-    modelValue: {
-      type: Object as PropType<InputProps['modelValue']>,
+    value: {
+      type: String as PropType<InputProps['value']>,
+    },
+    placeholder: {
+      type: String as PropType<InputProps['placeholder']>,
     },
     error: {
       type: String as PropType<InputProps['error']>,
