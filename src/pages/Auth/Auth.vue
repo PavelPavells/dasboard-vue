@@ -10,8 +10,8 @@
             type="email"
             autoFocus
             placeholder="satoshi@mercuryo.io"
-            autoComplete="email"
-            v-model="login"
+            autoComplete="login"
+            v-model:value="state.login"
           />
         </div>
         <div class="auth__wrapper-input">
@@ -20,15 +20,16 @@
             type="password"
             withIcon
             autoComplete="password"
-            v-model="password"
-            :error="error"
+            v-model:value="state.password"
+            v-model:error="error"
           />
-          <Button class="auth__forgot" @click="handleClick" outline>Forgot your password?</Button>
+          <Button class="auth__forgot" outline>Forgot your password?</Button>
           <Button
             class="auth__button"
-            :isDisabled="login.length === 0 || password.length === 0"
+            :isDisabled="isDisabled"
             width="140px"
             type="submit"
+            @click.prevent="handleClick"
           >
             Log in
           </Button>
@@ -39,38 +40,40 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, reactive, computed } from 'vue';
 import { Input, Button } from '@components/ui';
 import { AuthLayout } from '@layouts';
+import { useDisabledButton } from '@utils/hooks';
 
 export default defineComponent({
-  components: {
-    Input,
-    Button,
-    AuthLayout,
-  },
   setup() {
-    const login = ref('');
-    const password = ref('');
-    const error = ref('');
+    const state = reactive({
+      login: '',
+      password: '',
+    });
 
-    console.log(login);
+    const error = computed(() => {
+      return state.login === '' ? '' : '';
+    });
 
-    return {
-      login,
-      password,
-      error,
-    };
+    const { isDisabled } = useDisabledButton(state);
+
+    return { state, isDisabled, error };
+  },
+  computed: {
+    hasButtonDisable(): boolean {
+      return !this.state.login || !this.state.password;
+    },
   },
   methods: {
     handleClick(): void {
       console.log('click');
     },
-    handleSubmit(e: Event): void {
-      e.preventDefault();
-
-      console.log('handle submit');
-    },
+  },
+  components: {
+    Input,
+    Button,
+    AuthLayout,
   },
 });
 </script>
