@@ -2,13 +2,15 @@
   <label :show="label" class="label">
     {{ label }}
   </label>
-  <div class="input-wrapper" :class="stylesObj">
+  <div class="input-wrapper" :class="{ 'error-border': errorBorder, 'with-border': withBorder }">
     <input
       class="input"
       :type="type"
       :placeholder="placeholder"
       :value="value"
       @input="$emit('update:value', ($event.target as HTMLInputElement).value)"
+      @blur="$emit('blur', handleValidation)"
+      @keyup="$emit('keyup', handleValidation)"
     />
     <button :show="getShowMask" class="switch-masked" type="button" @click="switchMasked">
       <BaseIcon :show="getMask" name="eye_closed" class="icon" />
@@ -16,27 +18,33 @@
     </button>
   </div>
   <div class="error-wrapper" :active="error">
-    <div :show="error" class="error">{{ error }}</div>
+    <div :show="Boolean(error)" class="error">{{ error }}</div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, toRefs, PropType, VueElement } from 'vue';
+import { computed, defineComponent, PropType, VueElement } from 'vue';
 import BaseIcon from '../BaseIcon/BaseIcon.vue';
 import { InputProps } from './types';
 
 export default defineComponent({
   setup(props) {
-    const { withBorder, error } = toRefs(props);
+    const errorMessage = computed(() => {
+      return props.error;
+    });
+
+    const errorBorder = computed(() => {
+      return props.error ? 'error-border' : '';
+    });
 
     return {
       masked: true,
-      error,
-      stylesObj: {
-        'with-border': withBorder,
-      },
+      error: errorMessage,
+      errorBorder,
+      withBorder: props.withBorder,
     };
   },
+  emits: ['blur', 'keyup', 'update:value'],
   computed: {
     getShowMask() {
       return this.showMask && this.type === 'password';
@@ -84,6 +92,9 @@ export default defineComponent({
     },
     type: {
       type: String as PropType<InputProps['type']>,
+    },
+    handleValidation: {
+      type: Function as PropType<any>,
     },
   },
 });

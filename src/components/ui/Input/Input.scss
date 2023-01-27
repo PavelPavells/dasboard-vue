@@ -12,16 +12,58 @@
   border-radius: 10px;
 }
 
+.error-wrapper {
+  padding-top: 6px;
+}
+
 .input {
   width: 100%;
-  padding: 10px 5px;
+  padding: 10px 16px;
+  color: inherit;
+  font-size: 17px;
+  font-family: inherit;
+  line-height: 24px;
+  text-align: inherit;
+  border: none;
+  outline: none;
+  appearance: none;
+}
+
+.input::placeholder {
+  color: var(--color-first-blue);
+  font-size: 17px;
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--color-main-red);
 }
 
 .with-border {
   border: 1px solid var(--color-main-border);
 }
 
-.input-wrapper.error, .error {
-  color: var(--color-main-red);
+.error-border {
   border-color: var(--color-main-red);
+}
+
+.input-wrapper.error::first-letter, .error::first-letter {
+  text-transform: uppercase;
+}
+
+.switch-masked {
+  position: absolute;
+  top: 0;
+  right: var(--input-switch-masked-right);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: inherit;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }

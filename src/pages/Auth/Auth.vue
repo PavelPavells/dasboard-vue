@@ -1,7 +1,7 @@
 <template>
   <auth-layout>
     <section class="auth">
-      <form>
+      <form @submit.prevent="handleSubmit">
         <p class="auth__header">Welcome back</p>
         <p class="auth__subheader">Let&apos;s make the most of your Mercuryo experience!</p>
         <div class="auth__wrapper-input">
@@ -12,6 +12,9 @@
             placeholder="satoshi@mercuryo.io"
             autoComplete="login"
             v-model:value="state.login"
+            v-model:error="errors.login"
+            @blur="getValidateLogin"
+            @keyup="getValidateLogin"
           />
         </div>
         <div class="auth__wrapper-input">
@@ -21,16 +24,12 @@
             withIcon
             autoComplete="password"
             v-model:value="state.password"
-            v-model:error="error"
+            v-model:error="errors.password"
+            @blur="getValidatePassword"
+            @keyup="getValidatePassword"
           />
-          <Button class="auth__forgot" outline>Forgot your password?</Button>
-          <Button
-            class="auth__button"
-            :isDisabled="isDisabled"
-            width="140px"
-            type="submit"
-            @click.prevent="handleClick"
-          >
+          <Button class="auth__forgot" @click="handleOpenTip" outline>Forgot your password?</Button>
+          <Button class="auth__button" :isDisabled="isDisabled" width="140px" type="submit">
             Log in
           </Button>
         </div>
@@ -40,10 +39,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, computed } from 'vue';
+import { defineComponent, reactive } from 'vue';
 import { Input, Button } from '@components/ui';
 import { AuthLayout } from '@layouts';
-import { useDisabledButton } from '@utils/hooks';
+import { useDisabledButton, useFormValidation } from '@utils/hooks';
 
 export default defineComponent({
   setup() {
@@ -52,22 +51,25 @@ export default defineComponent({
       password: '',
     });
 
-    const error = computed(() => {
-      return state.login === '' ? '' : '';
-    });
+    const { validateEmailField, validatePasswordField, errors } = useFormValidation();
+    const { isDisabled } = useDisabledButton(state, errors);
 
-    const { isDisabled } = useDisabledButton(state);
+    const getValidateLogin = () => {
+      validateEmailField('login', state.login);
+    };
 
-    return { state, isDisabled, error };
-  },
-  computed: {
-    hasButtonDisable(): boolean {
-      return !this.state.login || !this.state.password;
-    },
+    const getValidatePassword = () => {
+      validatePasswordField('password', state.password, 10);
+    };
+
+    return { state, isDisabled, getValidateLogin, getValidatePassword, errors };
   },
   methods: {
-    handleClick(): void {
+    handleSubmit() {
       console.log('click');
+    },
+    handleOpenTip() {
+      console.log('tip');
     },
   },
   components: {

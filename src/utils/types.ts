@@ -56,3 +56,7 @@ export type SubmitButtonProps = {
   login: string;
   password: string;
 };
+
+export type ErrorFields = {
+  [key: string]: string;
+};
