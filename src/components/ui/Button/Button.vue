@@ -1,6 +1,8 @@
 <template>
   <button :type="type" class="button" :class="{ disabled: hasDisabled, loading: isLoading }">
-    <div v-if="icon" class="button__icon">{{ icon }}</div>
+    <div v-if="icon" class="button__icon">
+      <component :is="icon" />
+    </div>
     <slot />
   </button>
 </template>
@@ -15,11 +17,7 @@ export default defineComponent({
       return props.isDisabled ? 'disabled' : '';
     });
 
-    const hasLoading = computed(() => {
-      return props.isLoading ? 'loading' : '';
-    });
-
-    return { hasDisabled, hasLoading };
+    return { hasDisabled };
   },
   props: {
     type: {
