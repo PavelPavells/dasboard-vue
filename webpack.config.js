@@ -14,7 +14,6 @@ const webpack = require('webpack');
 
 let WEBPACK_LOCAL_CONFIG;
 try {
-  /* eslint-disable-next-line global-require */
   WEBPACK_LOCAL_CONFIG = require('./webpack-local.config');
 } catch (e) {
   WEBPACK_LOCAL_CONFIG = {};
