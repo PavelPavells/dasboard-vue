@@ -137,7 +137,7 @@ module.exports = {
           { loader: 'sass-loader', options: { sourceMap: true } },
           {
             loader: 'sass-resources-loader',
-            options: { resources: [`${paths.src}/styles/_const.scss`] },
+            options: { resources: `${paths.src}/styles/_const.scss` },
           },
         ],
       },
