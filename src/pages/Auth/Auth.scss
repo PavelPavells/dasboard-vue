@@ -19,10 +19,6 @@
 
 .auth__button {
   margin-top: 20px;
-
-  @include media('>mobile') {
-    width: 140px;
-  }
 }
 
 .auth__button:hover {
