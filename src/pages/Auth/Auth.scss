@@ -25,6 +25,10 @@
   }
 }
 
+.auth__button:hover {
+  background-color: var(--color-main-hover);
+}
+
 .auth__forgot {
   padding: 0;
   justify-content: start;

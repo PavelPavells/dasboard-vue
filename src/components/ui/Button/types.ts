@@ -5,7 +5,7 @@ export type ButtonProps = {
   className?: string;
   isLoading?: boolean;
   outline?: boolean;
-  width?: string;
+  width?: number;
   fullWidth?: boolean;
   icon?: VueElement;
   isDisabled?: boolean;

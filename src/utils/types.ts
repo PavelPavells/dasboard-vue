@@ -53,7 +53,7 @@ export type CookieType<Key = keyof typeof CookieKeys> = {
 };
 
 export type SubmitButtonProps = {
-  login: string;
+  email: string;
   password: string;
 };
 

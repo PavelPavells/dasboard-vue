@@ -1,14 +1,23 @@
 <template>
-  <button :type="type" class="button" :class="{ disabled: hasDisabled, loading: isLoading }">
-    <div v-if="icon" class="button__icon">
-      <component :is="icon" />
+  <button
+    :type="type"
+    class="button"
+    :class="{ disabled: hasDisabled, loading: isLoading }"
+    :style="{ width: `${width}px` || '100%' }"
+  >
+    <Spinner v-if="isLoading" class="loader" color="var(--color-main-bg)" :size="25" />
+    <div v-else>
+      <div v-if="icon" class="button__icon">
+        <component :is="icon" />
+      </div>
+      <slot />
     </div>
-    <slot />
   </button>
 </template>
 
 <script lang="ts">
 import { defineComponent, VueElement, PropType, computed } from 'vue';
+import Spinner from '../Spinner/Spinner.vue';
 import { ButtonProps } from './types';
 
 export default defineComponent({
@@ -33,10 +42,11 @@ export default defineComponent({
       type: Boolean as PropType<ButtonProps['outline']>,
     },
     width: {
-      type: String as PropType<ButtonProps['width']>,
+      type: Number as PropType<ButtonProps['width']>,
     },
     fullWidth: {
       type: Boolean as PropType<ButtonProps['fullWidth']>,
+      default: true,
     },
     icon: {
       type: VueElement as PropType<ButtonProps['icon']>,
@@ -44,6 +54,9 @@ export default defineComponent({
     isDisabled: {
       type: Boolean as PropType<ButtonProps['isDisabled']>,
     },
+  },
+  components: {
+    Spinner,
   },
 });
 </script>
