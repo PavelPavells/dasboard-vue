@@ -13,8 +13,8 @@
       @keyup="$emit('keyup', handleValidation)"
     />
     <button :show="getShowMask" class="switch-masked" type="button" @click="switchMasked">
-      <BaseIcon :show="getMask" name="eye_closed" class="icon" />
-      <BaseIcon :show="!getMask" name="eye_opened" class="icon" />
+      <BaseIcon v-if="getMask" name="eye_closed" class="icon" />
+      <BaseIcon v-else name="eye_opened" class="icon" />
     </button>
   </div>
   <div class="error-wrapper" :active="error">
@@ -30,7 +30,11 @@ import { InputProps } from './types';
 export default defineComponent({
   setup(props) {
     const errorMessage = computed(() => {
-      return props.error;
+      if (props.error) {
+        return props.error.charAt(0).toUpperCase() + props.error.slice(1);
+      }
+
+      return '';
     });
 
     const errorBorder = computed(() => {

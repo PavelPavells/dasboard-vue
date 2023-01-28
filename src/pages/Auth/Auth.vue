@@ -1,7 +1,7 @@
 <template>
   <auth-layout>
     <section class="auth">
-      <form @submit.prevent="handleSubmit">
+      <form>
         <p class="auth__header">Welcome back</p>
         <p class="auth__subheader">Let&apos;s make the most of your Mercuryo experience!</p>
         <div class="auth__wrapper-input">
@@ -11,8 +11,8 @@
             autoFocus
             placeholder="satoshi@mercuryo.io"
             autoComplete="login"
-            v-model:value="state.login"
-            v-model:error="errors.login"
+            v-model:value="state.email"
+            v-model:error="errors.email"
             @blur="getValidateLogin"
             @keyup="getValidateLogin"
           />
@@ -28,8 +28,17 @@
             @blur="getValidatePassword"
             @keyup="getValidatePassword"
           />
-          <Button class="auth__forgot" @click="handleOpenTip" outline>Forgot your password?</Button>
-          <Button class="auth__button" :isDisabled="isDisabled" width="140px" type="submit">
+          <Button class="auth__forgot" @click.prevent="handleOpenTip" outline
+            >Forgot your password?</Button
+          >
+          <Button
+            class="auth__button"
+            type="submit"
+            :isDisabled="isDisabled"
+            :width="140"
+            :isLoading="isLoading"
+            @click.prevent="handleSubmit"
+          >
             Log in
           </Button>
         </div>
@@ -47,7 +56,7 @@ import { useDisabledButton, useFormValidation } from '@utils/hooks';
 export default defineComponent({
   setup() {
     const state = reactive({
-      login: '',
+      email: '',
       password: '',
     });
 
@@ -55,18 +64,24 @@ export default defineComponent({
     const { isDisabled } = useDisabledButton(state, errors);
 
     const getValidateLogin = () => {
-      validateEmailField('login', state.login);
+      validateEmailField('email', state.email);
     };
 
     const getValidatePassword = () => {
-      validatePasswordField('password', state.password, 10);
+      validatePasswordField('password', state.password);
     };
 
     return { state, isDisabled, getValidateLogin, getValidatePassword, errors };
   },
+  data() {
+    return {
+      isLoading: false,
+    };
+  },
   methods: {
     handleSubmit() {
       console.log('click');
+      this.isLoading = !this.isLoading;
     },
     handleOpenTip() {
       console.log('tip');

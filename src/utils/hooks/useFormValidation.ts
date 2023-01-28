@@ -17,7 +17,7 @@ function useValidators() {
   const isEmail = (fieldName: string, fieldValue: string) => {
     const re =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return !re.test(fieldValue) ? `is not a valid ${fieldName} address` : '';
+    return !re.test(fieldValue) ? `${fieldName} is not valid` : '';
   };
   return { isEmail, isEmpty, minLength };
 }
@@ -25,7 +25,7 @@ function useValidators() {
 export default function useFormValidation(): {
   errors: ErrorFields;
   validateEmailField: (x: string, y: string) => void;
-  validatePasswordField: (x: string, y: string, z: number) => void;
+  validatePasswordField: (x: string, y: string, z?: number) => void;
 } {
   const { isEmail, isEmpty, minLength } = useValidators();
 
@@ -35,7 +35,7 @@ export default function useFormValidation(): {
       : isEmail(fieldName, fieldValue);
   };
 
-  const validatePasswordField = (fieldName: string, fieldValue: string, min: number) => {
+  const validatePasswordField = (fieldName: string, fieldValue: string, min = 10) => {
     errors[fieldName] = !fieldValue
       ? isEmpty(fieldName, fieldValue)
       : minLength(fieldName, fieldValue, min);
