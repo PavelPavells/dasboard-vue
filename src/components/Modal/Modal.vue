@@ -16,7 +16,7 @@
           hidden: hideCloseButton,
           hiddenMobile: hideMobileCloseButton,
         }"
-        @click="$emit('onClose', onClose)"
+        @click.prevent="$emit('input', onClose)"
       >
         <BaseIcon name="close_modal" />
       </Button>
@@ -44,7 +44,7 @@ export default defineComponent({
 
     return { isClosed };
   },
-  emits: ['onClose'],
+  emits: ['input'],
   computed: {
     animationStyles() {
       return {
