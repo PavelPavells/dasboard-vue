@@ -2,32 +2,35 @@
   display: flex;
 }
 
-.header {
+.auth__header {
   margin-bottom: 8px;
   font-family: var(--karloff);
 }
 
-.subheader {
+.auth__subheader {
   margin-bottom: 48px;
   font-size: 16px;
   line-height: 19px;
 }
 
-.wrapper-input {
-  &:not(:first-child) {
-    margin-top: 21px;
-  }
+.auth__wrapper-input {
+  position: relative;
 }
 
-.button {
+.auth__wrapper-input:not(:first-child) {
+  margin-top: 21px;
+}
+
+.auth__button {
   margin-top: 20px;
-
-  // @include media('>mobile') {
-  //   width: 140px;
-  // }
 }
 
-.forgot {
+.auth__button:hover {
+  background-color: var(--color-main-hover);
+}
+
+.auth__forgot {
+  padding: 0;
   justify-content: start;
   color: var(--color-main-blue);
   font-weight: 400;
@@ -38,23 +41,21 @@
 }
 
 .modal {
-  // @include media('>mobile') {
-  //   top: 65%;
-  //   left: 0;
-  //   max-width: 320px;
-  //   height: auto;
-  //   padding: 20px;
-  //   background-color: var(--color-main-bg);
-  //   border-radius: 16px;
-  // }
+  left: 0;
+  max-width: 320px;
+  height: auto;
+  padding: 20px;
+  background-color: var(--color-main-bg);
+  border-radius: 16px;
 }
 
-.modal-text {
+.auth__modal-text {
+  overflow-y: hidden;
   font-size: 14px;
   line-height: 16px;
 
-  // @include media('<=mobile') {
-  //   font-size: 20px;
-  //   line-height: 24px;
-  // }
+  @include media('<=mobile') {
+    font-size: 20px;
+    line-height: 24px;
+  }
 }

@@ -1,9 +1,9 @@
-import { InputHTMLAttributes, VueElement } from "vue";
+import { InputHTMLAttributes, VueElement } from 'vue';
 
 export interface InputProps extends InputHTMLAttributes {
   className?: string;
   label?: string;
-  error?: VueElement | boolean;
+  error?: string;
   isLoading?: boolean;
   tooltipContent?: VueElement;
   tooltipClassName?: string;
@@ -17,6 +17,8 @@ export interface InputProps extends InputHTMLAttributes {
   autoComplete?: string;
   enterKeyHint?: InputHTMLAttributes;
   withBorder?: boolean;
-  hasError?: boolean;
   type?: string;
+  name?: string;
+  id: string;
+  modelValue: string;
 }

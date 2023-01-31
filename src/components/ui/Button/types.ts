@@ -1,11 +1,12 @@
-import { VueElement } from "vue";
+import { VueElement } from 'vue';
 
 export type ButtonProps = {
+  type?: 'button' | 'submit' | 'reset';
   className?: string;
   isLoading?: boolean;
   outline?: boolean;
-  width?: string;
+  width?: number;
   fullWidth?: boolean;
   icon?: VueElement;
-  disabled?: boolean;
+  isDisabled?: boolean;
 };

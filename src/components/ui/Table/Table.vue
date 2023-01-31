@@ -7,34 +7,37 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
-import Head from "./Head/Head.vue";
-import Rows from "./Rows/Rows.vue";
-import { TableProps } from "./types";
+import { defineComponent, PropType } from 'vue';
+import Head from './Head/Head.vue';
+import Rows from './Rows/Rows.vue';
+import { TableProps } from './types';
 
 export default defineComponent({
-  name: "TableComponent",
-  components: {
-    Head,
-    Rows,
+  setup(props) {
+    return '';
   },
   data() {
     const hasData = Boolean(this.$props.data.length);
 
     return { hasData };
   },
+  components: {
+    Head,
+    Rows,
+  },
   props: {
     data: {
-      type: Object as PropType<TableProps["data"]>,
+      type: Object as PropType<TableProps['data']>,
       required: true,
     },
     columns: {
-      type: Object as PropType<TableProps["columns"]>,
+      type: Object as PropType<TableProps['columns']>,
       required: true,
     },
   },
 });
 </script>
+
 <style>
-@import url("./Table.scss");
+@import url('./Table.scss');
 </style>

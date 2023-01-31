@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 14px;
+};
+
+.links {
+  color: var(--color-main-dark-text);
+}
+
+.links:last-child {
+  margin-right: 0;
+}  

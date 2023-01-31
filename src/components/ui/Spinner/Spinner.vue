@@ -1,50 +1,47 @@
 <template>
-  <div className="spinner" v-bind:class="cssVars">
-    <svg className="circular" viewBox="25 25 50 50">
-      <circle
-        className="path"
-        cx="50"
-        cy="50"
-        r="20"
-        fill="none"
-        strokeWidth="4"
-        strokeMiterlimit="10"
-        v-bind:stroke="$props.color || state.color"
-      />
+  <div :style="{ width: `${size || 32}px`, height: `${size || 32}px` }">
+    <svg
+      :width="size"
+      :height="size"
+      viewBox="0 0 38 38"
+      :style="{ stroke: color || 'var(--color-main-blue)' }"
+    >
+      <g fill="none" fillRule="evenodd">
+        <g transform="translate(1 1)" strokeWidth="2">
+          <circle strokeOpacity=".3" cx="18" cy="18" r="18" />
+          <path d="M36 18c0-9.94-8.06-18-18-18">
+            <animateTransform
+              attributeName="transform"
+              type="rotate"
+              from="0 18 18"
+              to="360 18 18"
+              dur="1s"
+              repeatCount="indefinite"
+            />
+          </path>
+        </g>
+      </g>
     </svg>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
-import { SpinnerProps } from "./types";
+import { defineComponent, PropType } from 'vue';
+import { SpinnerProps } from './types';
 
 export default defineComponent({
-  name: "SpinnerComponent",
-  data() {
-    return {
-      state: {
-        color: "#ebebeb",
-      },
-    };
-  },
-  computed: {
-    cssVars() {
-      return {
-        "--size": this.$props.size,
-      };
-    },
-  },
   props: {
     color: {
-      type: Object as PropType<SpinnerProps["color"]>,
+      type: String as PropType<SpinnerProps['color']>,
     },
     size: {
-      type: Object as PropType<SpinnerProps["size"]>,
+      type: Number as PropType<SpinnerProps['size']>,
+      default: 32,
     },
   },
 });
 </script>
-<style lang="scss">
-@import url("./Spinner.scss");
+
+<style>
+@import url('./Spinner.scss');
 </style>

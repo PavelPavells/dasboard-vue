@@ -1,5 +1,5 @@
-if (typeof window.__APP_CONFIG__ === "undefined") {
-  throw new Error("Error");
+if (typeof window.__APP_CONFIG__ === 'undefined') {
+  throw new Error('Error');
 }
 
 const { apiScheme, wssScheme, apiHost, apiVersion } = window.__APP_CONFIG__;
@@ -8,35 +8,35 @@ const CONST = {
   ...window.__APP_CONFIG__,
 
   nav: {
-    root: "/",
-    login: "/login",
+    root: '/',
+    login: '/login',
 
-    widgets: "/widgets",
-    edit: "/widgets/edit",
-    add: "/widgets/add",
-    callbacks: "/widgets/callbacks",
-    fees: "/widgets/fees",
+    widgets: '/widgets',
+    edit: '/widgets/edit',
+    add: '/widgets/add',
+    callbacks: '/widgets/callbacks',
+    fees: '/widgets/fees',
 
-    account: "/account",
-    transactions: "/transactions",
+    account: '/account',
+    transactions: '/transactions',
   },
-  intercomAppId: "t3xaiuum",
+  intercomAppId: 't3xaiuum',
   infoLinks: [
     {
-      text: "Terms",
-      link: "/legal/terms",
+      text: 'Terms',
+      link: '/legal/terms',
     },
     {
-      text: "Privacy",
-      link: "/legal/privacy",
+      text: 'Privacy',
+      link: '/legal/privacy',
     },
     {
-      text: "Cookies policy",
-      link: "/legal/cookies",
+      text: 'Cookies policy',
+      link: '/legal/cookies',
     },
     {
-      text: "Help",
-      link: "/help",
+      text: 'Help',
+      link: '/help',
     },
   ],
   api: {

@@ -1,3 +1,69 @@
-.Input{
+.label {
+  display: block;
+  margin: 2px 0 8px;
+}
+
+.input-wrapper {
+  position: relative;
   display: flex;
+  align-items: center;
+  color: var(--color-first-blue);
+  background: inherit;
+  border-radius: 10px;
+}
+
+.error-wrapper {
+  padding-top: 6px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 16px;
+  color: inherit;
+  font-size: 17px;
+  font-family: inherit;
+  line-height: 24px;
+  text-align: inherit;
+  border: none;
+  outline: none;
+  appearance: none;
+}
+
+.input::placeholder {
+  color: var(--color-main-light-secondary-text);
+  font-size: 17px;
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--color-main-red);
+}
+
+.with-border {
+  border: 1px solid var(--color-main-border);
+}
+
+.error-border {
+  border-color: var(--color-main-red);
+}
+
+.input-wrapper.error::first-letter, .error::first-letter {
+  text-transform: uppercase;
+}
+
+.switch-masked {
+  position: absolute;
+  top: 0;
+  right: var(--input-switch-masked-right);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: inherit;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }

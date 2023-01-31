@@ -1,50 +1,71 @@
 <template>
-  <button class="button" :bind="(disabled, isLoading)" v-bind:class="cssVars">
-    <div :show="icon" class="button__icon">{{ icon }}</div>
-    <slot />
+  <button
+    :type="type"
+    class="button"
+    :class="{ disabled: hasDisabled, loading: isLoading }"
+    :style="{ width: `${width}px` || '100%' }"
+    @click.prevent="$emit('click', onClick)"
+  >
+    <Spinner v-if="isLoading" class="loader" color="var(--color-main-bg)" :size="25" />
+    <div v-else>
+      <div v-if="icon" class="button__icon">
+        <component :is="icon" />
+      </div>
+      <slot />
+    </div>
   </button>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
-import { ButtonProps } from "./types";
+import { defineComponent, VueElement, PropType, computed } from 'vue';
+import Spinner from '../Spinner/Spinner.vue';
+import { ButtonProps } from './types';
 
 export default defineComponent({
-  name: "ButtonComponent",
-  computed: {
-    cssVars() {
-      return {
-        "--disabled": this.$props.disabled || false,
-        "--isLoading": this.$props.isLoading || false,
-      };
-    },
+  setup(props) {
+    const hasDisabled = computed(() => {
+      return props.isDisabled ? 'disabled' : '';
+    });
+
+    return { hasDisabled };
+  },
+  emits: ['click'],
+  components: {
+    Spinner,
   },
   props: {
+    type: {
+      type: String as PropType<ButtonProps['type']>,
+    },
     className: {
-      type: Object as PropType<ButtonProps["className"]>,
+      type: String as PropType<ButtonProps['className']>,
     },
     isLoading: {
-      type: Object as PropType<ButtonProps["isLoading"]>,
+      type: Boolean as PropType<ButtonProps['isLoading']>,
     },
     outline: {
-      type: Object as PropType<ButtonProps["outline"]>,
+      type: Boolean as PropType<ButtonProps['outline']>,
     },
     width: {
-      type: Object as PropType<ButtonProps["width"]>,
+      type: Number as PropType<ButtonProps['width']>,
     },
     fullWidth: {
-      type: Object as PropType<ButtonProps["fullWidth"]>,
+      type: Boolean as PropType<ButtonProps['fullWidth']>,
+      default: true,
     },
     icon: {
-      type: Object as PropType<ButtonProps["icon"]>,
+      type: VueElement as PropType<ButtonProps['icon']>,
     },
-    disabled: {
-      type: Object as PropType<ButtonProps["disabled"]>,
+    isDisabled: {
+      type: Boolean as PropType<ButtonProps['isDisabled']>,
+    },
+    onClick: {
+      type: Function as PropType<any>,
     },
   },
 });
 </script>
 
-<style lang="scss">
-@import url("./Button.scss");
+<style>
+@import url('./Button.scss');
 </style>

@@ -1,88 +1,122 @@
 <template>
-  <Auth>
+  <auth-layout>
     <section class="auth">
-      <form @submit="handleSubmit">
-        <p class="header">Welcome back</p>
-        <p class="subheader">Let&apos;s make the most of your Mercuryo experience!</p>
-        <div class="wrapper-input">
+      <form>
+        <p class="auth__header">Welcome back</p>
+        <p class="auth__subheader">Let&apos;s make the most of your Mercuryo experience!</p>
+        <div class="auth__wrapper-input">
           <Input
             label="Email"
-            name="login"
             type="email"
             autoFocus
-            inputMode="email"
             placeholder="satoshi@mercuryo.io"
-            autoComplete="email"
-            @input="$emit('update:login', $event.target.value)"
-            v-model:value="auth.login"
-            v-model:ref="inputRef"
+            autoComplete="login"
+            v-model:value="state.email"
+            v-model:error="errors.email"
+            @blur="getValidateLogin"
+            @keyup="getValidateLogin"
           />
         </div>
-        <div class="wrapper-input">
+        <div class="auth__wrapper-input">
           <Input
             label="Password"
-            name="password"
             type="password"
-            inputMode="text"
-            withBorder
             withIcon
             autoComplete="password"
-            @input="$emit('update:password', $event.target.value)"
-            v-model:value="auth.password"
-            v-model:ref="inputRef"
-            v-model:error="auth.error"
+            v-model:value="state.password"
+            v-model:error="errors.password"
+            @blur="getValidatePassword"
+            @keyup="getValidatePassword"
           />
-          <Button class="forgot" @click="handleClick" outline> Forgot your password? </Button>
-          <Button class="button" v-model:disabled="isSubmitDisabled" width="140px" type="submit">
+          <Modal
+            class="modal"
+            v-model:isOpen="isOpenModal"
+            v-model:onClick="handleToggleModal"
+            hideCloseButton
+          >
+            <p class="auth__modal-text">
+              To change your password, please contact our support
+              <a href="mailto:support@mercuryo.io" class="link"> support@mercuryo.io </a>
+            </p>
+          </Modal>
+          <Button class="auth__forgot" @click="handleToggleModal" outline>
+            Forgot your password?
+          </Button>
+          <Button
+            class="auth__button"
+            type="submit"
+            :isDisabled="isDisabled"
+            :width="140"
+            :isLoading="isLoading"
+            @click.prevent="handleSubmit"
+          >
             Log in
           </Button>
         </div>
       </form>
     </section>
-  </Auth>
+  </auth-layout>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref } from "vue";
-import { Input, Button } from "@components/ui";
-import { Auth } from "@layouts";
+import { defineComponent, reactive } from 'vue';
+import { Input, Button } from '@components/ui';
+import { AuthLayout } from '@layouts';
+import Modal from '@components/Modal/Modal.vue';
+import { useState } from '@utils/hooks';
+import { useDisabledButton, useFormValidation } from '@utils/hooks';
 
 export default defineComponent({
-  name: "AuthComponent",
-  components: {
-    Input,
-    Button,
-    Auth,
-  },
   setup() {
-    const auth = reactive({
-      login: "",
-      password: "",
-      error: "",
+    const state = reactive({
+      email: '',
+      password: '',
     });
 
-    const inputRef = ref();
+    const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
-    const isLoading = false;
-    const isSubmitDisabled = !auth.login || !auth.password || isLoading;
+    const { validateEmailField, validatePasswordField, errors } = useFormValidation();
+    const { isDisabled } = useDisabledButton(state, errors);
+
+    const getValidateLogin = () => {
+      validateEmailField('email', state.email);
+    };
+
+    const getValidatePassword = () => {
+      validatePasswordField('password', state.password);
+    };
+
+    const handleToggleModal = () => setIsOpenModal(!isOpenModal.value);
 
     return {
-      auth,
-      inputRef,
-      isSubmitDisabled,
+      state,
+      isOpenModal,
+      isDisabled,
+      handleToggleModal,
+      getValidateLogin,
+      getValidatePassword,
+      errors,
+    };
+  },
+  data() {
+    return {
+      isLoading: false,
     };
   },
   methods: {
-    handleClick: () => {
-      console.log("click");
+    handleSubmit() {
+      return '';
     },
-    handleSubmit: (e: Event) => {
-      e.preventDefault();
-
-      console.log("handle submit");
-    },
+  },
+  components: {
+    AuthLayout,
+    Input,
+    Button,
+    Modal,
   },
 });
 </script>
 
-<style lang="scss" src="./Auth.scss"></style>
+<style>
+@import url('./Auth.scss');
+</style>

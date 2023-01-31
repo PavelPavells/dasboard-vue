@@ -1,14 +1,14 @@
-import { CookieAttributes } from "js-cookie";
+import { CookieAttributes } from 'js-cookie';
 
 export type BemCSSModulesType = (
   style: { [key: string]: string },
   className: string
 ) => (...args: any) => string;
 
-export type Platforms = "widget_api" | "dashbaord_api";
+export type Platforms = 'widget_api' | 'dashbaord_api';
 
 export enum CookieKeys {
-  token = "token",
+  token = 'token',
 }
 
 export type LocationStateType = {
@@ -52,7 +52,11 @@ export type CookieType<Key = keyof typeof CookieKeys> = {
   removeCookie: (name: Key, options?: CookieAttributes) => void;
 };
 
-export enum SchemesEnum {
-  dark = "dark",
-  light = "light",
-}
+export type SubmitButtonProps = {
+  email: string;
+  password: string;
+};
+
+export type ErrorFields = {
+  [key: string]: string;
+};

@@ -1,46 +1,46 @@
 @font-face {
   font-weight: 400;
   font-family: BrutalType;
-  src: url('../../assets/fonts/BrutalType-Regular.woff2') format('woff2'),
-    url('../../assets/fonts/BrutalType-Regular.woff') format('woff'),
-    url('../../assets/fonts/BrutalType-Regular.otf') format('opentype');
+  src: url('/fonts/BrutalType-Regular.woff2') format('woff2'),
+    url('/fonts/BrutalType-Regular.woff') format('woff'),
+    url('/fonts/BrutalType-Regular.otf') format('opentype');
 }
 
 @font-face {
   font-weight: 500;
   font-family: BrutalType;
-  src: url('../../assets/fonts/BrutalType-Medium.woff2') format('woff2'),
-    url('../../assets/fonts/BrutalType-Medium.woff') format('woff'),
-    url('../../assets/fonts/BrutalType-Medium.ttf') format('opentype');
+  src: url('/fonts/BrutalType-Medium.woff2') format('woff2'),
+    url('/fonts/BrutalType-Medium.woff') format('woff'),
+    url('/fonts/BrutalType-Medium.ttf') format('opentype');
 }
 
 @font-face {
   font-weight: 600;
   font-family: BrutalType;
-  src: url('../../assets/fonts/BrutalType-Bold.woff2') format('woff2'),
-    url('../../assets/fonts/BrutalType-Bold.woff') format('woff'),
-    url('../../assets/fonts/BrutalType-Bold.otf') format('opentype');
+  src: url('/fonts/BrutalType-Bold.woff2') format('woff2'),
+    url('/fonts/BrutalType-Bold.woff') format('woff'),
+    url('/fonts/BrutalType-Bold.otf') format('opentype');
 }
 
 @font-face {
   font-family: Karloff;
-  src: url('../../assets/fonts/Karloff-Neutral-Regular-Web.woff2') format('woff2'),
-    url('../../assets/fonts/Karloff-Neutral-Regular-Web.woff') format('woff'),
-    url('../../assets/fonts/Karloff Neutral-Regular-App.ttf');
+  src: url('/fonts/Karloff-Neutral-Regular-Web.woff2') format('woff2'),
+    url('/fonts/Karloff-Neutral-Regular-Web.woff') format('woff'),
+    url('/fonts/Karloff Neutral-Regular-App.ttf');
 }
 
 @font-face {
   font-family: Roboto;
-  src: url('../../assets/fonts/Roboto-Regular.ttf');
+  src: url('/fonts/Roboto-Regular.ttf');
 }
 
 @font-face {
   font-weight: bold;
   font-family: Roboto;
-  src: url('../../assets/fonts/Roboto-Bold.ttf');
+  src: url('/fonts/Roboto-Bold.ttf');
 }
 
 @font-face {
   font-family: 'Roboto Mono';
-  src: url('../../assets/fonts/RobotoMono-Regular.ttf');
+  src: url('/fonts/RobotoMono-Regular.ttf');
 }
