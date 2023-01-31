@@ -28,9 +28,20 @@
             @blur="getValidatePassword"
             @keyup="getValidatePassword"
           />
-          <Button class="auth__forgot" @click.prevent="handleOpenTip" outline
-            >Forgot your password?</Button
+          <Modal
+            class="modal"
+            v-model:isOpen="isOpenModal"
+            v-model:onClick="handleToggleModal"
+            hideCloseButton
           >
+            <p class="auth__modal-text">
+              To change your password, please contact our support
+              <a href="mailto:support@mercuryo.io" class="link"> support@mercuryo.io </a>
+            </p>
+          </Modal>
+          <Button class="auth__forgot" @click="handleToggleModal" outline>
+            Forgot your password?
+          </Button>
           <Button
             class="auth__button"
             type="submit"
@@ -51,6 +62,8 @@
 import { defineComponent, reactive } from 'vue';
 import { Input, Button } from '@components/ui';
 import { AuthLayout } from '@layouts';
+import Modal from '@components/Modal/Modal.vue';
+import { useState } from '@utils/hooks';
 import { useDisabledButton, useFormValidation } from '@utils/hooks';
 
 export default defineComponent({
@@ -59,6 +72,8 @@ export default defineComponent({
       email: '',
       password: '',
     });
+
+    const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
     const { validateEmailField, validatePasswordField, errors } = useFormValidation();
     const { isDisabled } = useDisabledButton(state, errors);
@@ -71,7 +86,17 @@ export default defineComponent({
       validatePasswordField('password', state.password);
     };
 
-    return { state, isDisabled, getValidateLogin, getValidatePassword, errors };
+    const handleToggleModal = () => setIsOpenModal(!isOpenModal.value);
+
+    return {
+      state,
+      isOpenModal,
+      isDisabled,
+      handleToggleModal,
+      getValidateLogin,
+      getValidatePassword,
+      errors,
+    };
   },
   data() {
     return {
@@ -80,17 +105,14 @@ export default defineComponent({
   },
   methods: {
     handleSubmit() {
-      console.log('click');
-      this.isLoading = !this.isLoading;
-    },
-    handleOpenTip() {
-      console.log('tip');
+      return '';
     },
   },
   components: {
+    AuthLayout,
     Input,
     Button,
-    AuthLayout,
+    Modal,
   },
 });
 </script>

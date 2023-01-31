@@ -1,16 +1,15 @@
 <template>
-  <a class="link" v-bind:href="href" rel="noreferrer" target="_blank">
+  <a class="link" :href="href" rel="noreferrer" target="_blank">
     {{ text }}
   </a>
 </template>
 
 <script lang="ts">
-import { PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import { LinkProps } from './types';
 
-export default {
-  name: 'LinkComponent',
-  setup(props: any): { href: string } {
+export default defineComponent({
+  setup(props) {
     const href =
       props.link !== '/help'
         ? `https://mercuryo.io${props.link}?utm_source=my.mercuryo&utm_medium=referral`
@@ -21,18 +20,15 @@ export default {
   props: {
     className: {
       type: String as PropType<LinkProps['className']>,
-      required: false,
     },
     link: {
       type: String as PropType<LinkProps['link']>,
-      required: true,
     },
     text: {
       type: String as PropType<LinkProps['text']>,
-      required: true,
     },
   },
-};
+});
 </script>
 
 <style>

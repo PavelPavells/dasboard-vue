@@ -10,4 +10,5 @@ export type IconsProps = {
   eye_opened: VNode;
   logo_compact: VNode;
   logo_main: VNode;
+  close_modal: VNode;
 };
