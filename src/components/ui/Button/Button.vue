@@ -4,6 +4,7 @@
     class="button"
     :class="{ disabled: hasDisabled, loading: isLoading }"
     :style="{ width: `${width}px` || '100%' }"
+    @click.prevent="$emit('click', onClick)"
   >
     <Spinner v-if="isLoading" class="loader" color="var(--color-main-bg)" :size="25" />
     <div v-else>
@@ -27,6 +28,10 @@ export default defineComponent({
     });
 
     return { hasDisabled };
+  },
+  emits: ['click'],
+  components: {
+    Spinner,
   },
   props: {
     type: {
@@ -54,9 +59,9 @@ export default defineComponent({
     isDisabled: {
       type: Boolean as PropType<ButtonProps['isDisabled']>,
     },
-  },
-  components: {
-    Spinner,
+    onClick: {
+      type: Function as PropType<any>,
+    },
   },
 });
 </script>

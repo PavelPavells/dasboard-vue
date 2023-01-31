@@ -14,6 +14,7 @@ import EyeClosed from '@assets/icons/eye_closed.svg';
 import EyeOpened from '@assets/icons/eye_opened.svg';
 import LogoCompact from '@assets/icons/logo_compact.svg';
 import LogoMain from '@assets/icons/logo_main.svg';
+import CloseModal from '@assets/icons/close_modal.svg';
 
 import { IconsProps } from './types';
 
@@ -27,6 +28,7 @@ export const iconsList: IconsProps = {
   eye_opened: EyeOpened,
   logo_compact: LogoCompact,
   logo_main: LogoMain,
+  close_modal: CloseModal,
 };
 
 export default defineComponent({

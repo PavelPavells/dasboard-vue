@@ -12,17 +12,15 @@ import Link from '../Link/Link.vue';
 import { FooterProps } from './types';
 
 export default defineComponent({
-  name: 'FooterComponent',
-  components: {
-    Link,
-  },
   setup() {
     return { links: CONST.infoLinks };
   },
+  components: {
+    Link,
+  },
   props: {
     className: {
-      type: Object as PropType<FooterProps['className']>,
-      required: false,
+      type: String as PropType<FooterProps['className']>,
     },
   },
 });
