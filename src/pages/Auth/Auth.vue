@@ -28,7 +28,12 @@
             @blur="getValidatePassword"
             @keyup="getValidatePassword"
           />
-          <Modal class="modal" :isOpen="isOpenModal" :onClose="handleToggleModal" hideCloseButton>
+          <Modal
+            class="modal"
+            v-model:isOpen="isOpenModal"
+            v-model:onClick="handleToggleModal"
+            hideCloseButton
+          >
             <p class="auth__modal-text">
               To change your password, please contact our support
               <a href="mailto:support@mercuryo.io" class="link"> support@mercuryo.io </a>
@@ -81,11 +86,13 @@ export default defineComponent({
       validatePasswordField('password', state.password);
     };
 
+    const handleToggleModal = () => setIsOpenModal(!isOpenModal.value);
+
     return {
       state,
       isOpenModal,
-      setIsOpenModal,
       isDisabled,
+      handleToggleModal,
       getValidateLogin,
       getValidatePassword,
       errors,
@@ -99,9 +106,6 @@ export default defineComponent({
   methods: {
     handleSubmit() {
       return '';
-    },
-    handleToggleModal() {
-      this.setIsOpenModal(!this.isOpenModal);
     },
   },
   components: {
