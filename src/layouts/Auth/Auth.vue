@@ -23,5 +23,5 @@ export default {
 </script>
 
 <style>
-@import url('./AuthLayout.scss');
+@import url('./Auth.scss');
 </style>
