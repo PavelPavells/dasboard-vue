@@ -7,7 +7,7 @@
         <div class="auth__wrapper-input">
           <Input
             label="Email"
-            type="text"
+            type="email"
             autoFocus
             placeholder="satoshi@mercuryo.io"
             autoComplete="login"
