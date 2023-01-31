@@ -13,15 +13,17 @@ import Rows from './Rows/Rows.vue';
 import { TableProps } from './types';
 
 export default defineComponent({
-  name: 'TableComponent',
-  components: {
-    Head,
-    Rows,
+  setup(props) {
+    return '';
   },
   data() {
     const hasData = Boolean(this.$props.data.length);
 
     return { hasData };
+  },
+  components: {
+    Head,
+    Rows,
   },
   props: {
     data: {
@@ -35,6 +37,7 @@ export default defineComponent({
   },
 });
 </script>
+
 <style>
 @import url('./Table.scss');
 </style>
