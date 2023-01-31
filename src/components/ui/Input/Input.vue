@@ -5,15 +5,15 @@
   <div class="input-wrapper" :class="{ 'error-border': errorBorder, 'with-border': withBorder }">
     <input
       class="input"
-      :type="type"
+      :type="masked ? 'password' : 'text'"
       :placeholder="placeholder"
       :value="value"
       @input="$emit('update:value', ($event.target as HTMLInputElement).value)"
       @blur="$emit('blur', handleValidation)"
       @keyup="$emit('keyup', handleValidation)"
     />
-    <button :show="getShowMask" class="switch-masked" type="button" @click="switchMasked">
-      <BaseIcon v-if="getMask" name="eye_closed" class="icon" />
+    <button v-show="isPasswordType" class="switch-masked" type="button" @click="handleSwitchMask">
+      <BaseIcon v-if="masked" name="eye_closed" class="icon" />
       <BaseIcon v-else name="eye_opened" class="icon" />
     </button>
   </div>
@@ -25,10 +25,23 @@
 <script lang="ts">
 import { computed, defineComponent, PropType, VueElement } from 'vue';
 import BaseIcon from '../BaseIcon/BaseIcon.vue';
+import { useState } from '@utils/hooks';
 import { InputProps } from './types';
 
 export default defineComponent({
   setup(props) {
+    const isPasswordType = props.type === 'password';
+    const [masked, setMasked] = useState(isPasswordType);
+
+    const getInputType = () => {
+      if (!isPasswordType) return props.type;
+      if (masked) return 'password';
+
+      return 'text';
+    };
+
+    const handleSwitchMask = () => setMasked(!masked.value);
+
     const errorMessage = computed(() => {
       if (props.error) {
         return props.error.charAt(0).toUpperCase() + props.error.slice(1);
@@ -42,26 +55,16 @@ export default defineComponent({
     });
 
     return {
-      masked: true,
+      masked,
+      isPasswordType,
+      type: getInputType(),
+      handleSwitchMask,
       error: errorMessage,
       errorBorder,
       withBorder: props.withBorder,
     };
   },
   emits: ['blur', 'keyup', 'update:value'],
-  computed: {
-    getShowMask() {
-      return this.showMask && this.type === 'password';
-    },
-    getMask() {
-      return this.masked && this.type === 'password';
-    },
-  },
-  methods: {
-    switchMasked() {
-      this.masked = !this.masked;
-    },
-  },
   components: {
     BaseIcon,
   },
