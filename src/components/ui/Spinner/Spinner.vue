@@ -1,10 +1,10 @@
 <template>
-  <div :style="{ width: `${size || 32}px`, height: `${size || 32}px` }">
+  <div class="spinner" :style="{ '--size': `${size}px` }">
     <svg
       :width="size"
       :height="size"
       viewBox="0 0 38 38"
-      :style="{ stroke: color || 'var(--color-main-blue)' }"
+      :stroke="color || 'var(--color-main-blue)'"
     >
       <g fill="none" fillRule="evenodd">
         <g transform="translate(1 1)" strokeWidth="2">

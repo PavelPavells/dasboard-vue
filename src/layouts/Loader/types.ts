@@ -1,5 +1,5 @@
 export type LoaderProps = {
-  isLoading?: boolean;
+  isLoading: boolean;
   height?: string;
   size?: number;
 };
