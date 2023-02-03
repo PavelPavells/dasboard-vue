@@ -1,8 +1,8 @@
 <template>
-  <section class="loader" :style="height">
-    <Spinner v-if="isLoading" :size="size" />
-    <slot v-else />
+  <section v-if="isLoading" class="loader">
+    <Spinner :size="size" />
   </section>
+  <slot v-else />
 </template>
 
 <script lang="ts">
