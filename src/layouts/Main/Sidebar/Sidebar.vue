@@ -3,7 +3,15 @@
 </template>
 
 <script lang="ts">
-export default {};
+import { defineComponent } from 'vue';
+import { useIsDesktop } from '@utils/hooks';
+
+export default defineComponent({
+  setup() {
+    const isDesktop = useIsDesktop();
+  },
+  components: {},
+});
 </script>
 
 <style lang="scss">

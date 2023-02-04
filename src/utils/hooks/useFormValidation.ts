@@ -1,7 +1,7 @@
 import { reactive } from 'vue';
-import { ErrorFields } from '../types';
+import { ErrorFieldsProps } from '../types';
 
-const errors: ErrorFields = reactive({});
+const errors: ErrorFieldsProps = reactive({});
 
 function useValidators() {
   const isEmpty = (fieldName: string, fieldValue: string): string => {
@@ -23,7 +23,7 @@ function useValidators() {
 }
 
 export default function useFormValidation(): {
-  errors: ErrorFields;
+  errors: ErrorFieldsProps;
   validateEmailField: (x: string, y: string) => void;
   validatePasswordField: (x: string, y: string, z?: number) => void;
 } {

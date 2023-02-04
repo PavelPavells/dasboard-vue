@@ -20,4 +20,4 @@ export function useMultipleState<T>(initialState: T): [any, (newState: any) => v
   return [readonly(state), setState];
 }
 
-export default { useState, useMultipleState };
+export default { useState };

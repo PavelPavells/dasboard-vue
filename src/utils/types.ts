@@ -1,17 +1,46 @@
 import { CookieAttributes } from 'js-cookie';
 
+// TODO: replace this
+export enum FiatCurrencyEnum {
+  EUR = 'EUR',
+  RUB = 'RUB',
+  USD = 'USD',
+  GBP = 'GBP',
+  // IDR = 'IDR',
+  // JPY = 'JPY',
+  // TRY = 'TRY',
+  // UAH = 'UAH',
+  // NGN = 'NGN',
+  // BRL = 'BRL',
+  // VND = 'VND',
+  // MXN = 'MXN',
+  // INR = 'INR',
+  // CHF = 'CHF',
+  // CZK = 'CZK',
+  // DKK = 'DKK',
+  // PLN = 'PLN',
+  // SEK = 'SEK',
+  // BGN = 'BGN',
+}
+
 export type BemCSSModulesType = (
   style: { [key: string]: string },
   className: string
 ) => (...args: any) => string;
 
-export type Platforms = 'widget_api' | 'dashbaord_api';
+export type Platforms = {
+  widget: 'widget';
+  dashboard: 'dashboard';
+  public: 'public';
+};
 
-export enum CookieKeys {
-  token = 'token',
-}
+export type CookiesProps = {
+  token: string;
+  platformsToken: string;
+  idleTimeout: number;
+};
 
-export type LocationStateType = {
+export type LocationStateProps = {
   login: {
     isResetPassword?: boolean;
     isSetEmail?: boolean;
@@ -27,22 +56,17 @@ export type LocationStateType = {
   };
 };
 
-export type FullNameType = (firstName?: string, lastName?: string) => string;
+export type FullNameProps = (firstName?: string, lastName?: string) => string;
 export type FooterMenuLink = typeof CONST.infoLinks[number];
 
-export type LocationStateKeys = keyof LocationStateType;
-export type LocationStateValues = LocationStateType[LocationStateKeys];
+export type LocationStateKeys = keyof LocationStateProps;
+export type LocationStateValues = LocationStateProps[LocationStateKeys];
 
-export type RedirectToType = <T extends LocationStateKeys>(
-  path: T extends LocationStateKeys ? string : T,
-  state?: T extends LocationStateKeys ? LocationStateType[T] : LocationStateType[LocationStateKeys]
-) => void;
-
-export type LocalStorageType = {
+export type LocalStorageProps = {
   token: string;
 };
 
-export type CookieType<Key = keyof typeof CookieKeys> = {
+export type CookieProps<Key> = {
   setCookie: <U>(
     name: Key,
     value: NonNullable<U>,
@@ -57,6 +81,19 @@ export type SubmitButtonProps = {
   password: string;
 };
 
-export type ErrorFields = {
+export type ErrorFieldsProps = {
   [key: string]: string;
 };
+
+export type GetDateProps = (data: {
+  date: Date;
+  options: Intl.DateTimeFormatOptions;
+  locale: string;
+}) => string;
+
+export type IntlDateProps = (data: {
+  date: Date;
+  options?: Intl.DateTimeFormatOptions;
+  language?: string;
+  fullDate?: boolean;
+}) => string;
