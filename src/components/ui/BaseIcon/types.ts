@@ -11,4 +11,8 @@ export type IconsProps = {
   logo_compact: VNode;
   logo_main: VNode;
   close_modal: VNode;
+  widgets: VNode;
+  transactions: VNode;
+  documentation: VNode;
+  help_center: VNode;
 };
