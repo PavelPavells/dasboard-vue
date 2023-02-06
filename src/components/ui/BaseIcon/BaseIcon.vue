@@ -15,6 +15,10 @@ import EyeOpened from '@assets/icons/eye_opened.svg';
 import LogoCompact from '@assets/icons/logo_compact.svg';
 import LogoMain from '@assets/icons/logo_main.svg';
 import CloseModal from '@assets/icons/close_modal.svg';
+import Widgets from '@assets/icons/widgets.svg';
+import Transactions from '@assets/icons/transactions.svg';
+import Documentation from '@assets/icons/documentation.svg';
+import HelpCenter from '@assets/icons/help_center.svg';
 
 import { IconsProps } from './types';
 
@@ -29,6 +33,10 @@ export const iconsList: IconsProps = {
   logo_compact: LogoCompact,
   logo_main: LogoMain,
   close_modal: CloseModal,
+  widgets: Widgets,
+  transactions: Transactions,
+  documentation: Documentation,
+  help_center: HelpCenter,
 };
 
 export default defineComponent({
