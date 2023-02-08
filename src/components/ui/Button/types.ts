@@ -7,6 +7,6 @@ export type ButtonProps = {
   outline?: boolean;
   width?: number;
   fullWidth?: boolean;
-  icon?: VueElement;
+  icon?: any;
   isDisabled?: boolean;
 };
