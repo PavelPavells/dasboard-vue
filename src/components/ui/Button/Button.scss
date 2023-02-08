@@ -9,6 +9,12 @@
   background: var(--color-main-blue);
   border-radius: var(--button-border-radius);
   cursor: pointer;
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+  }
 }
 
 .disabled {
@@ -16,10 +22,4 @@
   background-color: var(--color-main-pale);
   cursor: initial;
   pointer-events: none;
-}
-
-.icon {
-  display: flex;
-  align-items: center;
-  margin-right: 8px;
 }

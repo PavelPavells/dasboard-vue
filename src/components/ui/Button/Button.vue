@@ -1,37 +1,34 @@
 <template>
   <button
     :type="type"
-    class="button"
-    :class="{ disabled: hasDisabled, loading: isLoading }"
+    :class="[styles.button, isDisabled ? styles.disabled : '']"
     :style="{ width: `${width}px` || '100%' }"
     @click.prevent="$emit('click', onClick)"
   >
-    <Spinner v-if="isLoading" class="loader" color="var(--color-main-bg)" :size="25" />
-    <div v-else>
-      <div v-if="icon" class="button__icon">
-        <component :is="icon" />
-      </div>
-      <slot />
+    <Spinner v-if="isLoading" :class="styles.loader" color="var(--color-main-bg)" :size="25" />
+    <div v-if="!isLoading && icon" :class="styles.button__icon">
+      <BaseIcon :name="icon" />
     </div>
+    <slot />
   </button>
 </template>
 
 <script lang="ts">
-import { defineComponent, VueElement, PropType, computed } from 'vue';
+import { defineComponent, VueElement, PropType } from 'vue';
 import Spinner from '../Spinner/Spinner.vue';
+import BaseIcon from '../BaseIcon/BaseIcon.vue';
 import { ButtonProps } from './types';
 
-export default defineComponent({
-  setup(props) {
-    const hasDisabled = computed(() => {
-      return props.isDisabled ? 'disabled' : '';
-    });
+import styles from './Button.scss';
 
-    return { hasDisabled };
+export default defineComponent({
+  setup() {
+    return { styles };
   },
   emits: ['click'],
   components: {
     Spinner,
+    BaseIcon,
   },
   props: {
     type: {
@@ -65,7 +62,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style>
-@import url('./Button.scss');
-</style>
