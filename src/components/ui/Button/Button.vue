@@ -1,11 +1,16 @@
 <template>
   <button
     :type="type"
-    :class="[styles.button, isDisabled ? styles.disabled : '']"
+    :class="[styles.button, { isDisabled }]"
     :style="{ width: `${width}px` || '100%' }"
     @click.prevent="$emit('click', onClick)"
   >
-    <Spinner v-if="isLoading" :class="styles.loader" color="var(--color-main-bg)" :size="25" />
+    <Spinner
+      v-if="isLoading"
+      :class="styles.button__loader"
+      color="var(--color-main-bg)"
+      :size="25"
+    />
     <div v-if="!isLoading && icon" :class="styles.button__icon">
       <BaseIcon :name="icon" />
     </div>
