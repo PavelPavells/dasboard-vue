@@ -1,7 +1,7 @@
-import { computed, ref } from 'vue';
+import { computed, Ref, ref } from 'vue';
 import styles from '@styles/_const.scss';
 
-const useIsDesktop = (): boolean => {
+const useIsDesktop = (): Ref<boolean> => {
   const mobileWidth = parseInt(styles.desktop, 10);
   const isMobile = ref(window.innerWidth <= mobileWidth);
 
@@ -12,7 +12,7 @@ const useIsDesktop = (): boolean => {
     return () => window.removeEventListener('resize', resize);
   });
 
-  return isMobile.value;
+  return isMobile;
 };
 
 export default useIsDesktop;

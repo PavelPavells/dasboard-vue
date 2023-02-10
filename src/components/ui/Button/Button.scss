@@ -15,11 +15,11 @@
     align-items: center;
     margin-right: 8px;
   }
-}
 
-.disabled {
-  color: var(--color-main-light-text);
-  background-color: var(--color-main-pale);
-  cursor: initial;
-  pointer-events: none;
+  &.isDisabled {
+    color: var(--color-main-light-text);
+    background-color: var(--color-main-pale);
+    cursor: initial;
+    pointer-events: none;
+  }
 }
