@@ -4,10 +4,12 @@
       <div :class="styles.main__wrapper">
         <Sidebar />
         <div :class="styles.main__wrapper__content">
-          <Header />
-          <div :class="styles.main__content">
-            <slot />
-          </div>
+          <MainProvider>
+            <Header />
+            <div :class="styles.main__content">
+              <slot />
+            </div>
+          </MainProvider>
         </div>
       </div>
     </LoaderLayout>
@@ -20,6 +22,7 @@ import { BaseIcon } from '@components/ui';
 import Sidebar from './Sidebar/Sidebar.vue';
 import Header from './Header/Header.vue';
 import LoaderLayout from '../Loader/Loader.vue';
+import MainProvider from './context/MainProvider.vue';
 
 import styles from './Main.scss';
 
@@ -30,6 +33,7 @@ export default defineComponent({
     return { isLoading, styles };
   },
   components: {
+    MainProvider,
     LoaderLayout,
     Header,
     Sidebar,
