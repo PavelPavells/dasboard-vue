@@ -1,11 +1,14 @@
 <template>
-  <header class="header">HEADER</header>
+  <header :class="styles.header">HEADER</header>
 </template>
 
 <script lang="ts">
-export default {};
-</script>
+import { defineComponent } from 'vue';
+import styles from './Header.scss';
 
-<style lang="scss">
-@import url('./Header.scss');
-</style>
+export default defineComponent({
+  setup() {
+    return { styles };
+  },
+});
+</script>

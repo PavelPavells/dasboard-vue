@@ -67,7 +67,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { useIsDesktop, useState } from '@utils/hooks';
 import { redirectTo } from '@utils';
@@ -77,9 +77,10 @@ import styles from './Sidebar.scss';
 
 export default defineComponent({
   setup() {
-    const [isOpen, setIsOpen] = useState(true);
-    const isDesktop = useIsDesktop();
+    const [isOpen, setIsOpen] = useState(false);
     const route = useRoute();
+
+    const { value } = computed(() => useIsDesktop());
 
     const isWidgetsRoute = route.fullPath === CONST.nav.widgets;
     const isTransactionsRoute = route.fullPath === CONST.nav.transactions;
@@ -88,7 +89,7 @@ export default defineComponent({
 
     return {
       isOpen,
-      isDesktop: isDesktop.value,
+      isDesktop: value,
       isWidgetsRoute,
       isTransactionsRoute,
       handleToggleMenu,

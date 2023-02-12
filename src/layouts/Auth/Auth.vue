@@ -8,9 +8,9 @@
         </div>
         <Footer />
       </div>
-    </div>
-    <div :class="styles.auth__image__wrapper">
-      <img src="/img/auth/auth.png" :class="styles.auth__image" alt="auth_image" />
+      <div :class="styles.auth__image__wrapper">
+        <img src="/img/auth/auth.png" :class="styles.auth__image" alt="auth_image" />
+      </div>
     </div>
   </section>
 </template>
