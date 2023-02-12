@@ -1,11 +1,11 @@
 <template>
   <main :class="styles.main">
     <LoaderLayout :isLoading="isLoading">
-      <div :class="styles.wrapper">
+      <div :class="styles.main__wrapper">
         <Sidebar />
-        <div :class="styles.wrapper__content">
+        <div :class="styles.main__wrapper__content">
           <Header />
-          <div :class="styles.content">
+          <div :class="styles.main__content">
             <slot />
           </div>
         </div>
@@ -20,6 +20,7 @@ import { BaseIcon } from '@components/ui';
 import Sidebar from './Sidebar/Sidebar.vue';
 import Header from './Header/Header.vue';
 import LoaderLayout from '../Loader/Loader.vue';
+
 import styles from './Main.scss';
 
 export default defineComponent({

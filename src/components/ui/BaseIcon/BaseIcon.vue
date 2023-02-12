@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue';
+import { computed, defineComponent, PropType } from 'vue';
 
 import ArrowBig from '@assets/icons/arrow_big.svg';
 import ArrowDown from '@assets/icons/arrow_down.svg';
@@ -41,7 +41,7 @@ export const iconsList: IconsProps = {
 
 export default defineComponent({
   setup(props) {
-    const icon = iconsList[props.name];
+    const icon = computed(() => iconsList[props.name]);
 
     return { icon };
   },

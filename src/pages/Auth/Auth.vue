@@ -1,10 +1,10 @@
 <template>
   <auth-layout>
-    <section class="auth">
+    <section :class="styles.auth">
       <form>
-        <p class="auth__header">Welcome back</p>
-        <p class="auth__subheader">Let&apos;s make the most of your Mercuryo experience!</p>
-        <div class="auth__wrapper-input">
+        <p :class="styles.auth__header">Welcome back</p>
+        <p :class="styles.auth__subheader">Let&apos;s make the most of your Mercuryo experience!</p>
+        <div :class="styles.auth__wrapper__input">
           <Input
             label="Email"
             type="email"
@@ -17,7 +17,7 @@
             @keyup="getValidateLogin"
           />
         </div>
-        <div class="auth__wrapper-input">
+        <div :class="styles.auth__wrapper__input">
           <Input
             label="Password"
             type="password"
@@ -29,21 +29,21 @@
             @keyup="getValidatePassword"
           />
           <Modal
-            class="modal"
+            :class="styles.modal"
             v-model:isOpen="isOpenModal"
             v-model:onClick="handleToggleModal"
             hideCloseButton
           >
-            <p class="auth__modal-text">
+            <p :class="styles.auth__modal__text">
               To change your password, please contact our support
-              <a href="mailto:support@mercuryo.io" class="link"> support@mercuryo.io </a>
+              <a href="mailto:support@mercuryo.io" :class="styles.link"> support@mercuryo.io </a>
             </p>
           </Modal>
-          <Button class="auth__forgot" @click="handleToggleModal" outline>
+          <Button :class="styles.auth__forgot" @click="handleToggleModal" outline>
             Forgot your password?
           </Button>
           <Button
-            class="auth__button"
+            :class="styles.auth__button"
             type="submit"
             :isDisabled="isDisabled"
             :width="140"
@@ -65,6 +65,8 @@ import { AuthLayout } from '@layouts';
 import Modal from '@components/Modal/Modal.vue';
 import { useState } from '@utils/hooks';
 import { useDisabledButton, useFormValidation } from '@utils/hooks';
+
+import styles from './Auth.scss';
 
 export default defineComponent({
   setup() {
@@ -89,6 +91,7 @@ export default defineComponent({
     const handleToggleModal = () => setIsOpenModal(!isOpenModal.value);
 
     return {
+      styles,
       state,
       isOpenModal,
       isDisabled,
@@ -116,7 +119,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style>
-@import url('./Auth.scss');
-</style>
