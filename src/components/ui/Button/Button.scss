@@ -1,0 +1,25 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: var(--button-height);
+  color: var(--color-main-light-text);
+  font-weight: bold;
+  background: var(--color-main-blue);
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+  }
+
+  &.isDisabled {
+    color: var(--color-main-light-text);
+    background-color: var(--color-main-pale);
+    cursor: initial;
+    pointer-events: none;
+  }
+}

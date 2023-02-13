@@ -1,17 +1,21 @@
 <template>
-  <div class="widgets">
-    <HelloWorld msg="Welcome to Widgets Page" />
-  </div>
+  <MainLayout>
+    <section class="widgets">WIDGETS</section>
+  </MainLayout>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+import { defineComponent } from 'vue';
+import { MainLayout } from '@layouts';
 
 export default defineComponent({
-  name: "HomeView",
+  name: 'WidgetsComponent',
   components: {
-    HelloWorld,
+    MainLayout,
   },
 });
 </script>
+
+<style>
+@import url('./Widgets.scss');
+</style>

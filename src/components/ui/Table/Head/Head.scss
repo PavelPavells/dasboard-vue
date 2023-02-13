@@ -1,0 +1,26 @@
+.head {
+  position: sticky;
+  top: 0;
+  height: 48px;
+  color: var(--color-main-light-secondary-text);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  border-radius: 10px;
+
+  &__th {
+    padding-left: 17px;
+    text-align: left;
+    background: var(--color-seven-blue);
+
+    &:first-child {
+      border-top: 10px;
+      border-left: 10px;
+    }
+
+    &:last-child {
+      border-right: 10px;
+      border-left: 10px;
+    }
+  }
+}

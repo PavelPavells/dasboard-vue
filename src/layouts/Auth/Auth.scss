@@ -1,0 +1,61 @@
+
+.auth {
+  height: inherit;
+
+  &__wrapper {
+    display: grid;
+    grid-gap: 0 24px;
+    grid-template-columns: var(--login-form-width) 1fr;
+    height: inherit;
+    overflow: hidden;
+    background: var(--color-main-bg);
+
+    @include media('<=desktop') {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include media('<=tablet') {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 31px 64px 0;
+  
+    @include media('<=tablet') {
+      padding: 31px 32px 0;
+    }
+  
+    @include media('<=mobile') {
+      padding-top: 16px;
+    }
+  }
+
+  &__inner__wrapper {
+    position: relative;
+  }
+
+  &__logo {
+    max-width: 110px;
+    margin-bottom: 50px;
+  }
+  
+  &__image__wrapper {
+    display: flex;
+    height: inherit;
+    overflow: hidden;
+
+    @include media('<=tablet') {
+      display: none;
+    }
+  }
+  
+  &__image {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+  }
+}

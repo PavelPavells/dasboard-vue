@@ -1,0 +1,13 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.empty {
+  display: flex;
+  justify-content: center;
+  margin-top: 30%;
+  color: var(--color-main-light-third-text);
+  font-size: 16px;
+  line-height: 19px;
+}
