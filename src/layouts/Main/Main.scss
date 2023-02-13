@@ -1,27 +1,27 @@
 .main {
   height: inherit;
-}
 
-.wrapper {
-  display: flex;
-  height: inherit;
-  overflow: hidden;
-}
+  &__wrapper {
+    display: flex;
+    height: inherit;
+    overflow: hidden;
+  }
 
-.content {
-  width: 100%;
-  height: inherit;
-  padding: 0 var(--space-content-x);
-}
-
-.wrapper-content {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: inherit;
-  overflow: auto;
-
-  @include media('<desktop') {
-    padding-left: 92px;
+  &__wrapper__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: inherit;
+    overflow: auto;
+  
+    @include media('<desktop') {
+      padding-left: 92px;
+    }
+  }
+  
+  &__content {
+    width: 100%;
+    height: inherit;
+    padding: 0 var(--space-content-x);
   }
 }

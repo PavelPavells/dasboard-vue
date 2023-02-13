@@ -13,11 +13,11 @@
   line-height: 19px;
 }
 
-.auth__wrapper-input {
+.auth__wrapper__input {
   position: relative;
 }
 
-.auth__wrapper-input:not(:first-child) {
+.auth__wrapper__input:not(:first-child) {
   margin-top: 21px;
 }
 
@@ -49,7 +49,7 @@
   border-radius: 16px;
 }
 
-.auth__modal-text {
+.auth__modal__text {
   overflow-y: hidden;
   font-size: 14px;
   line-height: 16px;

@@ -1,11 +1,35 @@
 <template>
-  <header class="header">HEADER</header>
+  <header :class="styles.wrapper">
+    <div :class="styles.page__info">
+      <!-- <DateRangePickerContext>
+        <BreadCrumbs />
+      </DateRangePickerContext> -->
+      <h1 :class="styles.name">Widgets</h1>
+    </div>
+    <div :class="styles.user__info">
+      <BaseIcon name="bell" />
+      <img v-if="hasAvatar" :src="image" alt="avatar" :class="styles.avatar" />
+      <BaseIcon v-else name="avatar" :class="styles.avatar" />
+      <BaseIcon name="arrow_down" :class="styles.arrow" />
+      <div :class="styles.modal__wrapper">DROPDOWN</div>
+    </div>
+  </header>
 </template>
 
 <script lang="ts">
-export default {};
-</script>
+import { defineComponent, ref } from 'vue';
+import { BaseIcon } from '@components/ui';
+import styles from './Header.scss';
 
-<style lang="scss">
-@import url('./Header.scss');
-</style>
+export default defineComponent({
+  setup() {
+    const hasAvatar = ref(false);
+    const image = '';
+
+    return { styles, hasAvatar, image };
+  },
+  components: {
+    BaseIcon,
+  },
+});
+</script>

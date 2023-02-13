@@ -1,13 +1,15 @@
 <template>
-  <main class="main">
+  <main :class="styles.main">
     <LoaderLayout :isLoading="isLoading">
-      <div class="wrapper">
+      <div :class="styles.main__wrapper">
         <Sidebar />
-        <div class="wrapper-content">
-          <Header />
-          <div class="content">
-            <slot />
-          </div>
+        <div :class="styles.main__wrapper__content">
+          <MainProvider>
+            <Header />
+            <div :class="styles.main__content">
+              <slot />
+            </div>
+          </MainProvider>
         </div>
       </div>
     </LoaderLayout>
@@ -20,14 +22,18 @@ import { BaseIcon } from '@components/ui';
 import Sidebar from './Sidebar/Sidebar.vue';
 import Header from './Header/Header.vue';
 import LoaderLayout from '../Loader/Loader.vue';
+import MainProvider from './context/MainProvider.vue';
+
+import styles from './Main.scss';
 
 export default defineComponent({
   setup() {
     const isLoading = ref(false);
 
-    return { isLoading };
+    return { isLoading, styles };
   },
   components: {
+    MainProvider,
     LoaderLayout,
     Header,
     Sidebar,
@@ -35,7 +41,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style>
-@import url('./Main.scss');
-</style>

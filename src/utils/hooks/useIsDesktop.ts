@@ -1,18 +1,21 @@
-import { computed, ref } from 'vue';
+import { onMounted, onBeforeUnmount, Ref, ref } from 'vue';
 import styles from '@styles/_const.scss';
 
-const useIsDesktop = (): boolean => {
+const useIsDesktop = (): Ref<boolean> => {
   const mobileWidth = parseInt(styles.desktop, 10);
   const isMobile = ref(window.innerWidth <= mobileWidth);
 
-  computed(() => {
-    const resize = () => (isMobile.value = window.innerWidth <= mobileWidth);
-    window.addEventListener('resize', resize);
+  const resize = () => (isMobile.value = window.innerWidth <= mobileWidth);
 
-    return () => window.removeEventListener('resize', resize);
+  onMounted(() => {
+    window.addEventListener('resize', resize);
   });
 
-  return isMobile.value;
+  onBeforeUnmount(() => {
+    window.removeEventListener('resize', resize);
+  });
+
+  return isMobile;
 };
 
 export default useIsDesktop;

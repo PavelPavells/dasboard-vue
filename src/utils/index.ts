@@ -1,4 +1,5 @@
 import { FullNameProps, IntlDateProps, GetDateProps, FiatCurrencyEnum } from './types';
+import { NavigationFailure, useRouter } from 'vue-router';
 
 export const getFullName: FullNameProps = (firstName, lastName) => {
   if (firstName && lastName) return `${firstName} ${lastName}`;
@@ -43,6 +44,12 @@ export const getDate: GetDateProps = ({ date, options, locale = 'de' }) => {
   const newDate = new Date(date);
 
   return new Intl.DateTimeFormat(locale, options).format(newDate);
+};
+
+export const redirectTo = (path: string): Promise<void | NavigationFailure | undefined> => {
+  const route = useRouter();
+
+  return route.push(path);
 };
 
 export const displayFiatSum = (fiatAmount: string, fiatCurrency: FiatCurrencyEnum): string => {
