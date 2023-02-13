@@ -1,14 +1,19 @@
 <template>
-  <section class="widgets">WIDGETS</section>
+  <MainLayout>
+    <section class="widgets">WIDGETS</section>
+  </MainLayout>
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent } from 'vue';
+import { MainLayout } from '@layouts';
+
+export default defineComponent({
   name: 'WidgetsComponent',
   components: {
-    // HelloWorld,
+    MainLayout,
   },
-};
+});
 </script>
 
 <style>

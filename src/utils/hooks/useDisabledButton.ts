@@ -1,9 +1,9 @@
 import { computed, ComputedRef } from 'vue';
-import { SubmitButtonProps, ErrorFields } from '../types';
+import { SubmitButtonProps, ErrorFieldsProps } from '../types';
 
 export default function useSubmitButton(
   state: SubmitButtonProps,
-  errors: ErrorFields
+  errors: ErrorFieldsProps
 ): {
   isDisabled: ComputedRef<boolean>;
 } {
