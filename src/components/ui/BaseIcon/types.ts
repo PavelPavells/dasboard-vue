@@ -15,4 +15,6 @@ export type IconsProps = {
   transactions: VNode;
   documentation: VNode;
   help_center: VNode;
+  avatar: VNode;
+  bell: VNode;
 };

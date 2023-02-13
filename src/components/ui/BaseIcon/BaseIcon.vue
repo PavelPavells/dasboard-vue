@@ -19,6 +19,8 @@ import Widgets from '@assets/icons/widgets.svg';
 import Transactions from '@assets/icons/transactions.svg';
 import Documentation from '@assets/icons/documentation.svg';
 import HelpCenter from '@assets/icons/help_center.svg';
+import Avatar from '@assets/icons/avatar.svg';
+import Bell from '@assets/icons/bell.svg';
 
 import { IconsProps } from './types';
 
@@ -37,6 +39,8 @@ export const iconsList: IconsProps = {
   transactions: Transactions,
   documentation: Documentation,
   help_center: HelpCenter,
+  avatar: Avatar,
+  bell: Bell,
 };
 
 export default defineComponent({
