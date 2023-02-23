@@ -13,7 +13,7 @@ import Rows from './Rows/Rows.vue';
 import { TableProps } from './types';
 
 export default defineComponent({
-  setup(props) {
+  setup() {
     return '';
   },
   data() {
