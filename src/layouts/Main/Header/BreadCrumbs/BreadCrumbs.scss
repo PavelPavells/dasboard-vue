@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  height: 20px;
+}
+
+.crumbs {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+  color: var(--color-main-light-secondary-text);
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.crumb {
+  font-weight: normal;
+  background-color: var(--color-main-bg);
+}
+
+.separator {
+  margin: 0 5px;
+  color: var(--color-main-light-secondary-text);
+  font-weight: normal;
+}
+
+.route {
+  color: var(--color-main-light-secondary-text);
+  font-weight: normal;
+  background-color: var(--color-main-bg);
+}
+
+.export {
+  width: 80px;
+  height: 22px;
+  color: var(--color-main-light-secondary-text);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  background-color: var(--color-main-medium);
+  border-radius: 6px;
+}

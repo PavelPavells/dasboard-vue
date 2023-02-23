@@ -119,7 +119,9 @@ module.exports = {
               url: false,
               sourceMap: true,
               modules: {
-                localIdentName: IS_DEV ? '[local]' : '[contenthash:base64:5]',
+                localIdentName: IS_DEV
+                  ? '[local]__[contenthash:base64:5]'
+                  : '[contenthash:base64:5]',
               },
             },
           },
